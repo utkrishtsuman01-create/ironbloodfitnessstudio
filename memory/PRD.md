@@ -40,6 +40,8 @@ Owner credibility first; premium dark UI; real imagery only; WhatsApp-first conv
 
 - ACHIEVEMENTS LIVE CRUD (public by explicit owner request — NO auth/admin panel): achievements moved from static content.js to MongoDB `achievements` collection (seeded once with the original 14). Backend endpoints: GET/POST/PUT/DELETE /api/achievements + GET /api/achievements/file/{id} (images in object storage, deleted with their achievement). Achievements page has subtle inline EDIT / + ADD ACHIEVEMENT / REMOVE controls, a full form modal (name, year, location, organization, multi-row category+medal editor, description, image upload with preview), and a delete confirmation that identifies the achievement. Filters/sections/design unchanged.
 
+- AUTH (2026-09-21): phone+password JWT auth (httpOnly access 24h + refresh 7d cookies, bcrypt $2b$, 5-attempt/15-min lockout) + Emergent-managed Google sign-in (POST /api/auth/google/session merges by email into same users collection, same cookies). Pages: /auth (login+signup+Google), /account. Nav shows JOIN IN logged-out, ACCOUNT+LOG OUT (+OWNER badge for owner) logged-in. Owner account seeded from env (8282072600). Owner-only enforced server-side via require_owner dependency on all gallery + achievement mutations (401/403); controls additionally hidden in UI for non-owners. Google OAuth note: full round-trip needs a real Google account — button + callback + session-exchange verified up to the Emergent redirect.
+
 ## Backlog
 - P0: Add remaining user photos when uploaded (gallery + sections)
 - P1: Production hosting headers (CSP/HSTS/X-Content-Type-Options) — needs server config at deploy

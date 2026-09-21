@@ -3,6 +3,10 @@ import "@/App.css";
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import Lenis from "lenis";
 import { Toaster } from "sonner";
+import { AuthProvider } from "@/context/AuthContext";
+import AuthCallback from "@/components/AuthCallback";
+import Auth from "@/pages/Auth";
+import Account from "@/pages/Account";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Home from "@/pages/Home";
@@ -24,6 +28,35 @@ const ScrollToTop = () => {
     return null;
 };
 
+const Shell = () => {
+    const location = useLocation();
+    // Detect Google OAuth session_id synchronously during render (prevents race conditions)
+    if (location.hash?.includes("session_id=")) return <AuthCallback />;
+    return (
+        <>
+            <ScrollToTop />
+            <Navbar />
+            <main id="main-content">
+                <Routes>
+                    <Route path="/" element={<Home />} />
+                    <Route path="/about" element={<About />} />
+                    <Route path="/achievements" element={<Achievements />} />
+                    <Route path="/services" element={<Services />} />
+                    <Route path="/facilities" element={<Facilities />} />
+                    <Route path="/memberships" element={<Memberships />} />
+                    <Route path="/online-coaching" element={<OnlineCoaching />} />
+                    <Route path="/gallery" element={<Gallery />} />
+                    <Route path="/contact" element={<Contact />} />
+                    <Route path="/auth" element={<Auth />} />
+                    <Route path="/account" element={<Account />} />
+                    <Route path="*" element={<NotFound />} />
+                </Routes>
+            </main>
+            <Footer />
+        </>
+    );
+};
+
 function App() {
     useEffect(() => {
         if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
@@ -34,24 +67,10 @@ function App() {
     return (
         <div className="App grain">
             <BrowserRouter>
-                <ScrollToTop />
-                <Navbar />
-                <main id="main-content">
-                    <Routes>
-                        <Route path="/" element={<Home />} />
-                        <Route path="/about" element={<About />} />
-                        <Route path="/achievements" element={<Achievements />} />
-                        <Route path="/services" element={<Services />} />
-                        <Route path="/facilities" element={<Facilities />} />
-                        <Route path="/memberships" element={<Memberships />} />
-                        <Route path="/online-coaching" element={<OnlineCoaching />} />
-                        <Route path="/gallery" element={<Gallery />} />
-                        <Route path="/contact" element={<Contact />} />
-                        <Route path="*" element={<NotFound />} />
-                    </Routes>
-                </main>
-                <Footer />
-                <Toaster theme="dark" position="bottom-center" toastOptions={{ style: { background: "#142B21", border: "1px solid #3A2E1A", color: "#fff", borderRadius: 0 } }} />
+                <AuthProvider>
+                    <Shell />
+                    <Toaster theme="dark" position="bottom-center" toastOptions={{ style: { background: "#142B21", border: "1px solid #3A2E1A", color: "#fff", borderRadius: 0 } }} />
+                </AuthProvider>
             </BrowserRouter>
         </div>
     );

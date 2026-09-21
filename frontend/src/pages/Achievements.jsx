@@ -8,6 +8,7 @@ import { Reveal } from "@/components/Reveal";
 import CtaBanner from "@/components/CtaBanner";
 import AchievementForm from "@/components/AchievementForm";
 import SocialIcons from "@/components/SocialIcons";
+import { useAuth } from "@/context/AuthContext";
 import { MEDAL_STYLES, IMAGES, SOCIALS } from "@/data/content";
 
 const API = `${process.env.REACT_APP_BACKEND_URL}/api/achievements`;
@@ -26,6 +27,7 @@ const Achievements = () => {
     const [filter, setFilter] = useState("all");
     const [editing, setEditing] = useState(null);
     const [deleting, setDeleting] = useState(null);
+    const { isOwner } = useAuth();
     const [deleteBusy, setDeleteBusy] = useState(false);
 
     const load = useCallback(async () => {
@@ -63,7 +65,7 @@ const Achievements = () => {
             toast.success("Achievement removed.");
             setDeleting(null);
         } catch (err) {
-            toast.error(err.response?.data?.detail || "Could not remove the achievement. Please try again.");
+            toast.error(err.response?.status === 401 || err.response?.status === 403 ? "Owner access required." : err.response?.data?.detail || "Could not remove the achievement. Please try again.");
         } finally {
             setDeleteBusy(false);
         }
@@ -150,6 +152,7 @@ const Achievements = () => {
                                 </button>
                             ))}
                         </div>
+                        {isOwner && (
                         <button
                             type="button"
                             onClick={() => setEditing("new")}
@@ -158,6 +161,7 @@ const Achievements = () => {
                         >
                             <Plus className="h-4 w-4" aria-hidden="true" /> Add Achievement
                         </button>
+                        )}
                     </div>
 
                     {loading ? (
@@ -218,6 +222,8 @@ const Achievements = () => {
                                             <div className="mt-6 flex flex-1 items-end justify-between gap-3 border-t border-stone-800 pt-4">
                                                 <p className="text-xs uppercase tracking-[0.15em] text-stone-600">{a.location}</p>
                                                 <div className="flex shrink-0 gap-2">
+                                                    {isOwner && (
+                                                        <>
                                                     <button
                                                         type="button"
                                                         onClick={() => setEditing(a)}
@@ -236,6 +242,8 @@ const Achievements = () => {
                                                     >
                                                         <X className="h-3 w-3" aria-hidden="true" /> Remove
                                                     </button>
+                                                        </>
+                                                    )}
                                                 </div>
                                             </div>
                                         </motion.article>

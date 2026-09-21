@@ -4,12 +4,14 @@ import { AnimatePresence, motion } from "framer-motion";
 import { ImagePlus, X, Trash2, UploadCloud } from "lucide-react";
 import { toast } from "sonner";
 import Lightbox from "@/components/Lightbox";
+import { useAuth } from "@/context/AuthContext";
 
 const API = `${process.env.REACT_APP_BACKEND_URL}/api/gallery`;
 const MAX_MB = 8;
 const ALLOWED = ["image/jpeg", "image/png", "image/webp"];
 
 export const GalleryPublic = () => {
+    const { isOwner } = useAuth();
     const [items, setItems] = useState([]);
     const [loading, setLoading] = useState(true);
     const [uploadOpen, setUploadOpen] = useState(false);
@@ -77,7 +79,7 @@ export const GalleryPublic = () => {
             toast.success("Image uploaded successfully.");
             resetUpload();
         } catch (err) {
-            toast.error(err.response?.data?.detail || "Upload failed. Please try again.");
+            toast.error(err.response?.status === 401 || err.response?.status === 403 ? "Owner access required." : err.response?.data?.detail || "Upload failed. Please try again.");
         } finally {
             setUploading(false);
         }
@@ -92,7 +94,7 @@ export const GalleryPublic = () => {
             toast.success("Image removed successfully.");
             setDeleteTarget(null);
         } catch (err) {
-            toast.error(err.response?.data?.detail || "Could not remove the image. Please try again.");
+            toast.error(err.response?.status === 401 || err.response?.status === 403 ? "Owner access required." : err.response?.data?.detail || "Could not remove the image. Please try again.");
         } finally {
             setDeleting(false);
         }
@@ -116,6 +118,7 @@ export const GalleryPublic = () => {
                             Share your Ironblood moment — photos posted here are visible to everyone.
                         </p>
                     </div>
+                    {isOwner && (
                     <button
                         type="button"
                         onClick={() => setUploadOpen(true)}
@@ -124,6 +127,7 @@ export const GalleryPublic = () => {
                     >
                         <ImagePlus className="h-5 w-5" aria-hidden="true" /> + Post Picture
                     </button>
+                    )}
                 </div>
 
                 {loading ? (
@@ -163,6 +167,7 @@ export const GalleryPublic = () => {
                                 {item.caption && (
                                     <figcaption className="px-4 py-3 text-xs text-stone-300">{item.caption}</figcaption>
                                 )}
+                                {isOwner && (
                                 <button
                                     type="button"
                                     onClick={() => setDeleteTarget(item)}
@@ -172,6 +177,7 @@ export const GalleryPublic = () => {
                                 >
                                     <Trash2 className="h-3.5 w-3.5" aria-hidden="true" /> Remove
                                 </button>
+                                )}
                             </motion.figure>
                         ))}
                     </div>

@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
 import { Link, NavLink, useLocation } from "react-router-dom";
 import { AnimatePresence, motion } from "framer-motion";
-import { Menu, X, Phone, Clock } from "lucide-react";
+import { Menu, X, Phone, Clock, User, LogOut } from "lucide-react";
+import { useAuth } from "@/context/AuthContext";
 import { NAV_LINKS, BUSINESS, telHref } from "@/data/content";
 
 const BrandMark = () => (
@@ -12,6 +13,7 @@ const BrandMark = () => (
 
 export const Navbar = () => {
     const [open, setOpen] = useState(false);
+    const { user, isOwner, logout } = useAuth();
     const [scrolled, setScrolled] = useState(false);
     const location = useLocation();
 
@@ -55,14 +57,42 @@ export const Navbar = () => {
                         </li>
                     ))}
                 </ul>
-                <div className="hidden lg:block">
-                    <Link
-                        to="/contact"
-                        data-testid="nav-join-now-button"
-                        className="bg-[#C9A227] px-6 py-3 font-display text-sm font-bold uppercase tracking-[0.15em] text-[#1B1409] transition-colors duration-300 hover:bg-[#E3B94E]"
-                    >
-                        Join Now
-                    </Link>
+                <div className="hidden lg:flex items-center gap-3">
+                    {user ? (
+                        <>
+                            {isOwner && (
+                                <span
+                                    className="border border-[#C9A227]/60 px-2.5 py-1 font-mono2 text-[9px] uppercase tracking-[0.25em] text-[#E3B94E]"
+                                    data-testid="nav-owner-badge"
+                                >
+                                    Owner
+                                </span>
+                            )}
+                            <Link
+                                to="/account"
+                                data-testid="nav-account-link"
+                                className="inline-flex items-center gap-2 border border-[#C9A227]/60 px-5 py-3 font-display text-xs xl:text-sm font-bold uppercase tracking-[0.12em] text-[#F4EDDD] transition-colors hover:bg-[#C9A227] hover:text-[#173322]"
+                            >
+                                <User className="h-4 w-4" aria-hidden="true" /> Account
+                            </Link>
+                            <button
+                                type="button"
+                                onClick={logout}
+                                data-testid="nav-logout-button"
+                                className="inline-flex items-center gap-2 bg-[#C9A227] px-5 py-3 font-display text-xs xl:text-sm font-bold uppercase tracking-[0.12em] text-[#173322] transition-colors hover:bg-[#E3B94E]"
+                            >
+                                <LogOut className="h-4 w-4" aria-hidden="true" /> Log Out
+                            </button>
+                        </>
+                    ) : (
+                        <Link
+                            to="/auth"
+                            data-testid="nav-join-in-button"
+                            className="bg-[#C9A227] px-6 py-3 font-display text-sm font-bold uppercase tracking-[0.15em] text-[#1B1409] transition-colors duration-300 hover:bg-[#E3B94E]"
+                        >
+                            Join In
+                        </Link>
+                    )}
                 </div>
                 <button
                     type="button"
@@ -119,6 +149,33 @@ export const Navbar = () => {
                             >
                                 <Phone className="h-5 w-5" aria-hidden="true" /> Call Now
                             </a>
+                            {user ? (
+                                <div className="flex gap-3">
+                                    <Link
+                                        to="/account"
+                                        data-testid="nav-mobile-account-link"
+                                        className="flex-1 border border-[#C9A227]/60 py-4 text-center font-display text-lg font-bold uppercase tracking-wider text-white"
+                                    >
+                                        Account
+                                    </Link>
+                                    <button
+                                        type="button"
+                                        onClick={logout}
+                                        data-testid="nav-mobile-logout-button"
+                                        className="flex-1 border border-[#C9A227]/60 py-4 font-display text-lg font-bold uppercase tracking-wider text-white"
+                                    >
+                                        Log Out
+                                    </button>
+                                </div>
+                            ) : (
+                                <Link
+                                    to="/auth"
+                                    data-testid="nav-mobile-join-in-link"
+                                    className="block border border-[#C9A227]/60 py-4 text-center font-display text-lg font-bold uppercase tracking-wider text-white transition-colors hover:bg-[#C9A227] hover:text-[#173322]"
+                                >
+                                    Join In
+                                </Link>
+                            )}
                             <p className="flex items-center gap-2 font-mono2 text-xs uppercase tracking-[0.2em] text-stone-500">
                                 <Clock className="h-4 w-4" aria-hidden="true" /> {BUSINESS.hoursSummary}
                             </p>

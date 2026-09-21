@@ -84,7 +84,7 @@ export const AchievementForm = ({ initial, onClose, onSaved }) => {
                 : await axios.put(`${API}/${initial.id}`, fd, { headers: { "Content-Type": "multipart/form-data" } });
             onSaved(res.data, isNew);
         } catch (err) {
-            toast.error(err.response?.data?.detail || "Could not save the achievement. Please try again.");
+            toast.error(err.response?.status === 401 || err.response?.status === 403 ? "Owner access required." : err.response?.data?.detail || "Could not save the achievement. Please try again.");
         } finally {
             setBusy(false);
         }

@@ -1,15 +1,27 @@
-from fastapi import FastAPI, APIRouter
-from dotenv import load_dotenv
-from starlette.middleware.cors import CORSMiddleware
-from motor.motor_asyncio import AsyncIOMotorClient
-import os
 import logging
-from pathlib import Path
-from pydantic import BaseModel, Field, ConfigDict
-from typing import List
+import os
 import uuid
-from datetime import datetime, timezone
+from datetime import datetime, timedelta, timezone
+from pathlib import Path
 
+import bcrypt
+import jwt
+import requests
+from dotenv import load_dotenv
+from fastapi import (
+    APIRouter,
+    Depends,
+    FastAPI,
+    File,
+    Form,
+    HTTPException,
+    Request,
+    Response,
+    UploadFile,
+)
+from motor.motor_asyncio import AsyncIOMotorClient
+from pydantic import BaseModel, ConfigDict, Field
+from starlette.middleware.cors import CORSMiddleware
 
 ROOT_DIR = Path(__file__).parent
 load_dotenv(ROOT_DIR / '.env')
@@ -54,7 +66,7 @@ async def create_status_check(input: StatusCheckCreate):
     _ = await db.status_checks.insert_one(doc)
     return status_obj
 
-@api_router.get("/status", response_model=List[StatusCheck])
+@api_router.get("/status", response_model=list[StatusCheck])
 async def get_status_checks():
     # Exclude MongoDB's _id field from the query results
     status_checks = await db.status_checks.find({}, {"_id": 0}).to_list(1000)
@@ -66,9 +78,296 @@ async def get_status_checks():
     
     return status_checks
 
+# ---------------- Authentication (JWT, httpOnly cookies) ----------------
+import re as _re
+
+JWT_ALGORITHM = "HS256"
+ACCESS_TTL_HOURS = 24
+REFRESH_TTL_DAYS = 7
+EMAIL_RE = _re.compile(r"^[^@\s]+@[^@\s]+\.[^@\s]+$")
+PHONE_RE = _re.compile(r"^[6-9]\d{9}$")
+
+
+def normalize_phone(raw: str) -> str:
+    digits = _re.sub(r"\D", "", raw or "")
+    if len(digits) == 12 and digits.startswith("91"):
+        digits = digits[2:]
+    elif len(digits) == 11 and digits.startswith("0"):
+        digits = digits[1:]
+    return digits
+
+
+def hash_password(password: str) -> str:
+    return bcrypt.hashpw(password.encode("utf-8"), bcrypt.gensalt()).decode("utf-8")
+
+
+def verify_password(plain: str, hashed: str) -> bool:
+    return bcrypt.checkpw(plain.encode("utf-8"), hashed.encode("utf-8"))
+
+
+def create_access_token(user: dict) -> str:
+    payload = {
+        "sub": user["id"],
+        "phone": user["phone"],
+        "exp": datetime.now(timezone.utc) + timedelta(hours=ACCESS_TTL_HOURS),
+        "type": "access",
+    }
+    return jwt.encode(payload, os.environ["JWT_SECRET"], algorithm=JWT_ALGORITHM)
+
+
+def create_refresh_token(user_id: str) -> str:
+    payload = {
+        "sub": user_id,
+        "exp": datetime.now(timezone.utc) + timedelta(days=REFRESH_TTL_DAYS),
+        "type": "refresh",
+    }
+    return jwt.encode(payload, os.environ["JWT_SECRET"], algorithm=JWT_ALGORITHM)
+
+
+def set_auth_cookies(response: Response, user: dict):
+    response.set_cookie(
+        key="access_token", value=create_access_token(user),
+        httponly=True, secure=True, samesite="lax", max_age=ACCESS_TTL_HOURS * 3600, path="/",
+    )
+    response.set_cookie(
+        key="refresh_token", value=create_refresh_token(user["id"]),
+        httponly=True, secure=True, samesite="lax", max_age=REFRESH_TTL_DAYS * 86400, path="/",
+    )
+
+
+def public_user(user: dict) -> dict:
+    return {
+        "id": user["id"],
+        "name": user["name"],
+        "email": user.get("email", ""),
+        "phone": user["phone"],
+        "picture": user.get("picture", ""),
+        "is_owner": bool(user.get("is_owner")),
+    }
+
+
+async def get_current_user(request: Request) -> dict:
+    token = request.cookies.get("access_token")
+    if not token:
+        auth_header = request.headers.get("Authorization", "")
+        if auth_header.startswith("Bearer "):
+            token = auth_header[7:]
+    if not token:
+        raise HTTPException(status_code=401, detail="Not authenticated")
+    try:
+        payload = jwt.decode(token, os.environ["JWT_SECRET"], algorithms=[JWT_ALGORITHM])
+        if payload.get("type") != "access":
+            raise HTTPException(status_code=401, detail="Invalid token")
+    except jwt.ExpiredSignatureError:
+        raise HTTPException(status_code=401, detail="Session expired. Please log in again.")
+    except jwt.InvalidTokenError:
+        raise HTTPException(status_code=401, detail="Invalid session")
+    user = await db.users.find_one({"id": payload["sub"]})
+    if not user:
+        raise HTTPException(status_code=401, detail="User not found")
+    return user
+
+
+async def require_owner(user: dict = Depends(get_current_user)) -> dict:
+    if not user.get("is_owner"):
+        raise HTTPException(status_code=403, detail="Owner access required.")
+    return user
+
+
+class SignupRequest(BaseModel):
+    name: str
+    email: str
+    phone: str
+    password: str
+    confirm_password: str = ""
+
+
+class LoginRequest(BaseModel):
+    phone: str
+    password: str
+
+
+@api_router.post("/auth/signup", status_code=201)
+async def signup(payload: SignupRequest, response: Response):
+    name = payload.name.strip()
+    email = payload.email.strip().lower()
+    phone = normalize_phone(payload.phone)
+    if len(name) < 2:
+        raise HTTPException(status_code=400, detail="Please enter your full name.")
+    if not EMAIL_RE.match(email):
+        raise HTTPException(status_code=400, detail="Please enter a valid email address.")
+    if not PHONE_RE.match(phone):
+        raise HTTPException(status_code=400, detail="Please enter a valid 10-digit Indian mobile number.")
+    if len(payload.password) < 8:
+        raise HTTPException(status_code=400, detail="Password must be at least 8 characters.")
+    if payload.confirm_password and payload.password != payload.confirm_password:
+        raise HTTPException(status_code=400, detail="Passwords do not match.")
+    if await db.users.find_one({"phone": phone}):
+        raise HTTPException(status_code=400, detail="An account with this phone number already exists.")
+    if await db.users.find_one({"email": email}):
+        raise HTTPException(status_code=400, detail="An account with this email address already exists.")
+    user = {
+        "id": str(uuid.uuid4()),
+        "name": name[:80],
+        "email": email[:120],
+        "phone": phone,
+        "password_hash": hash_password(payload.password),
+        "is_owner": False,
+        "created_at": datetime.now(timezone.utc).isoformat(),
+    }
+    await db.users.insert_one(user)
+    set_auth_cookies(response, user)
+    return public_user(user)
+
+
+@api_router.post("/auth/login")
+async def login(payload: LoginRequest, request: Request, response: Response):
+    phone = normalize_phone(payload.phone)
+    identifier = f"{request.client.host if request.client else 'unknown'}:{phone}"
+    attempt = await db.login_attempts.find_one({"identifier": identifier})
+    if attempt and attempt.get("count", 0) >= 5:
+        locked_until = attempt.get("locked_until")
+        if locked_until and datetime.fromisoformat(locked_until) > datetime.now(timezone.utc):
+            raise HTTPException(status_code=429, detail="Too many failed attempts. Please try again in 15 minutes.")
+    user = await db.users.find_one({"phone": phone})
+    if user and not user.get("password_hash"):
+        raise HTTPException(status_code=400, detail="This account uses Google sign-in. Please continue with Google.")
+    if not user or not verify_password(payload.password, user["password_hash"]):
+        count = (attempt.get("count", 0) if attempt else 0) + 1
+        update = {"count": count}
+        if count >= 5:
+            update["locked_until"] = (datetime.now(timezone.utc) + timedelta(minutes=15)).isoformat()
+        await db.login_attempts.update_one({"identifier": identifier}, {"$set": update}, upsert=True)
+        raise HTTPException(status_code=401, detail="Incorrect phone number or password.")
+    await db.login_attempts.delete_one({"identifier": identifier})
+    set_auth_cookies(response, user)
+    return public_user(user)
+
+
+@api_router.post("/auth/logout")
+async def logout(response: Response):
+    response.delete_cookie("access_token", path="/")
+    response.delete_cookie("refresh_token", path="/")
+    return {"ok": True}
+
+
+@api_router.get("/auth/me")
+async def auth_me(user: dict = Depends(get_current_user)):
+    return public_user(user)
+
+
+@api_router.post("/auth/refresh")
+async def refresh_token(request: Request, response: Response):
+    token = request.cookies.get("refresh_token")
+    if not token:
+        raise HTTPException(status_code=401, detail="Not authenticated")
+    try:
+        payload = jwt.decode(token, os.environ["JWT_SECRET"], algorithms=[JWT_ALGORITHM])
+        if payload.get("type") != "refresh":
+            raise HTTPException(status_code=401, detail="Invalid token")
+    except jwt.InvalidTokenError:
+        raise HTTPException(status_code=401, detail="Invalid session")
+    user = await db.users.find_one({"id": payload["sub"]})
+    if not user:
+        raise HTTPException(status_code=401, detail="User not found")
+    response.set_cookie(
+        key="access_token", value=create_access_token(user),
+        httponly=True, secure=True, samesite="lax", max_age=ACCESS_TTL_HOURS * 3600, path="/",
+    )
+    return {"ok": True}
+
+
+class GoogleSessionRequest(BaseModel):
+    session_id: str
+
+
+@api_router.post("/auth/google/session")
+async def google_session(payload: GoogleSessionRequest, response: Response):
+    try:
+        resp = requests.get(
+            "https://demobackend.emergentagent.com/auth/v1/env/oauth/session-data",
+            headers={"X-Session-ID": payload.session_id},
+            timeout=30,
+        )
+        resp.raise_for_status()
+        data = resp.json()
+    except Exception as exc:
+        logger.error(f"Google session exchange failed: {exc}")
+        raise HTTPException(status_code=401, detail="Google sign-in failed. Please try again.")
+    email = (data.get("email") or "").strip().lower()
+    if not email:
+        raise HTTPException(status_code=401, detail="Google sign-in failed. Please try again.")
+    user = await db.users.find_one({"email": email})
+    if user is None:
+        user = {
+            "id": str(uuid.uuid4()),
+            "name": (data.get("name") or "Member").strip()[:80],
+            "email": email,
+            "phone": f"google:{email}",
+            "password_hash": None,
+            "picture": data.get("picture", ""),
+            "google_id": data.get("id", ""),
+            "is_owner": False,
+            "created_at": datetime.now(timezone.utc).isoformat(),
+        }
+        await db.users.insert_one(user)
+        logger.info(f"Google user created: {email}")
+    else:
+        updates = {}
+        if data.get("name") and data["name"].strip() != user.get("name"):
+            updates["name"] = data["name"].strip()[:80]
+        if data.get("picture") and data["picture"] != user.get("picture"):
+            updates["picture"] = data["picture"]
+        if data.get("id") and not user.get("google_id"):
+            updates["google_id"] = data["id"]
+        if updates:
+            await db.users.update_one({"email": email}, {"$set": updates})
+            user.update(updates)
+    set_auth_cookies(response, user)
+    return public_user(user)
+
+
+async def seed_owner():
+    phone = os.environ.get("OWNER_PHONE", "")
+    password = os.environ.get("OWNER_PASSWORD", "")
+    if not phone or not password:
+        logger.warning("Owner credentials not configured")
+        return
+    existing = await db.users.find_one({"phone": phone})
+    if existing is None:
+        await db.users.insert_one({
+            "id": str(uuid.uuid4()),
+            "name": "Bapi Das",
+            "email": "owner@ironblood.local",
+            "phone": phone,
+            "password_hash": hash_password(password),
+            "is_owner": True,
+            "created_at": datetime.now(timezone.utc).isoformat(),
+        })
+        logger.info("Owner account seeded")
+    else:
+        updates = {}
+        if not existing.get("is_owner"):
+            updates["is_owner"] = True
+        if not verify_password(password, existing["password_hash"]):
+            updates["password_hash"] = hash_password(password)
+        if updates:
+            await db.users.update_one({"phone": phone}, {"$set": updates})
+            logger.info("Owner account updated")
+
+
+@app.on_event("startup")
+async def startup_auth():
+    try:
+        await db.users.create_index("phone", unique=True)
+        await db.users.create_index("email", unique=True)
+        await db.login_attempts.create_index("identifier")
+        await seed_owner()
+    except Exception as exc:
+        logger.error(f"Auth startup failed: {exc}")
+
+
 # ---------------- Public gallery (visitor uploads) ----------------
-import requests
-from fastapi import UploadFile, File, Form, Response, HTTPException
 
 STORAGE_BASE = (os.environ.get("INTEGRATION_PROXY_URL") or "").strip() or "https://integrations.emergentagent.com"
 STORAGE_URL = STORAGE_BASE.rstrip("/") + "/objstore/api/v1/storage"
@@ -117,7 +416,7 @@ async def list_gallery():
 
 
 @api_router.post("/gallery", status_code=201)
-async def upload_gallery_image(file: UploadFile = File(...), caption: str = Form("")):
+async def upload_gallery_image(file: UploadFile = File(...), caption: str = Form(""), _owner: dict = Depends(require_owner)):
     content_type = (file.content_type or "").lower()
     if content_type not in ALLOWED_IMAGE_TYPES:
         raise HTTPException(status_code=400, detail="Unsupported file type. Please upload a JPG, PNG or WEBP image.")
@@ -164,7 +463,7 @@ async def get_gallery_file(file_id: str):
 
 
 @api_router.delete("/gallery/{file_id}")
-async def delete_gallery_image(file_id: str):
+async def delete_gallery_image(file_id: str, _owner: dict = Depends(require_owner)):
     result = await db.gallery_uploads.update_one(
         {"id": file_id, "is_deleted": False}, {"$set": {"is_deleted": True}}
     )
@@ -294,6 +593,7 @@ async def create_achievement(
     description: str = Form(""),
     results: str = Form("[]"),
     file: UploadFile = File(None),
+    _owner: dict = Depends(require_owner),
 ):
     fields = parse_achievement_form(title, year, location, org, description, results)
     image = None
@@ -323,6 +623,7 @@ async def update_achievement(
     results: str = Form("[]"),
     remove_image: str = Form("false"),
     file: UploadFile = File(None),
+    _owner: dict = Depends(require_owner),
 ):
     existing = await db.achievements.find_one({"id": achievement_id})
     if not existing:
@@ -365,7 +666,7 @@ async def get_achievement_file(achievement_id: str):
 
 
 @api_router.delete("/achievements/{achievement_id}")
-async def delete_achievement(achievement_id: str):
+async def delete_achievement(achievement_id: str, _owner: dict = Depends(require_owner)):
     existing = await db.achievements.find_one({"id": achievement_id})
     if not existing:
         raise HTTPException(status_code=404, detail="Achievement not found")
