@@ -118,6 +118,40 @@ const Contact = () => (
                 </Reveal>
             </div>
         </section>
+
+        <section className="border-t border-border pb-24 sm:pb-32 pt-16 sm:pt-20" data-testid="contact-map-section">
+            <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+                <Reveal>
+                    <div className="flex flex-col items-start justify-between gap-6 sm:flex-row sm:items-end">
+                        <div>
+                            <p className="font-mono2 text-[11px] sm:text-xs uppercase tracking-[0.3em] text-[#FF4A52]">Find the studio</p>
+                            <h2 className="mt-3 font-display text-3xl font-extrabold uppercase tracking-tight text-white sm:text-4xl">
+                                Bansdroni Park, Kolkata
+                            </h2>
+                        </div>
+                        <a
+                            href={BUSINESS.mapsUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            data-testid="contact-map-directions-button"
+                            className="inline-flex items-center gap-2 border border-zinc-600 px-6 py-3 font-display text-sm font-bold uppercase tracking-wider text-white transition-colors hover:border-[#D61C24] hover:bg-[#D61C24]"
+                        >
+                            <MapPin className="h-4 w-4" aria-hidden="true" /> Open in Google Maps
+                        </a>
+                    </div>
+                    <div className="mt-8 border border-border" data-testid="contact-map-frame">
+                        <iframe
+                            src={BUSINESS.mapsEmbedUrl}
+                            title="Map showing the location of Ironblood Fitness Studio, 50 Bansdroni Park, Kolkata 700070"
+                            loading="lazy"
+                            referrerPolicy="no-referrer-when-downgrade"
+                            allowFullScreen
+                            className="h-[380px] w-full grayscale-[35%] contrast-[1.05] sm:h-[460px]"
+                        />
+                    </div>
+                </Reveal>
+            </div>
+        </section>
     </>
 );
 

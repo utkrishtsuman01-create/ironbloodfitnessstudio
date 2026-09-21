@@ -12,6 +12,8 @@ export const BUSINESS = {
     hoursTime: "6:00 AM – 11:00 PM",
     mapsUrl:
         "https://www.google.com/maps/search/?api=1&query=IRONBLOOD+FITNESS+STUDIO,+50+Bansdroni+Park,+Ward+Number+113,+Kolkata,+West+Bengal+700070",
+    mapsEmbedUrl:
+        "https://www.google.com/maps?q=IRONBLOOD+FITNESS+STUDIO,+50+Bansdroni+Park,+Ward+Number+113,+Kolkata,+West+Bengal+700070&output=embed",
 };
 
 export const telHref = `tel:${BUSINESS.phoneRaw}`;
