@@ -117,7 +117,7 @@ const About = () => (
                 <SectionHeading eyebrow="Coaching Scope" title="Specializations" />
                 <Stagger className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
                     {SPECIALIZATIONS.map((s) => (
-                        <motion.div key={s.title} variants={staggerItem} className="border border-border bg-[#142B21] p-7 transition-colors hover:border-[#C9A227]/50">
+                        <motion.div key={s.title} variants={staggerItem} className="border border-border bg-[#142B21] p-7 transition-all duration-300 hover:-translate-y-1 hover:border-[#D4AF37]/60 hover:bg-[#1B5E3A]">
                             <h3 className="font-display text-xl font-extrabold uppercase text-white">{s.title}</h3>
                             <p className="mt-3 text-sm text-stone-500">{s.desc}</p>
                         </motion.div>

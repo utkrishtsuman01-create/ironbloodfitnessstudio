@@ -195,7 +195,7 @@ const OwnerShowcase = () => (
                             <motion.div
                                 key={t}
                                 variants={staggerItem}
-                                className="flex items-start gap-4 border border-border bg-[#142B21] p-5 transition-colors duration-300 hover:border-[#C9A227]/50"
+                                className="flex items-start gap-4 border border-border bg-[#142B21] p-5 transition-all duration-300 hover:-translate-y-1 hover:border-[#D4AF37]/60 hover:bg-[#1B5E3A]"
                             >
                                 <Icon className="mt-1 h-5 w-5 shrink-0 text-[#D4AF37]" aria-hidden="true" />
                                 <div>
@@ -240,7 +240,7 @@ const AchievementPreview = () => {
                         <motion.article
                             key={a.id}
                             variants={staggerItem}
-                            className="group border border-border bg-[#142B21] p-6 transition-all duration-300 hover:-translate-y-1 hover:border-[#D4AF37]/50"
+                            className="group border border-border bg-[#142B21] p-6 transition-all duration-300 hover:-translate-y-1 hover:border-[#D4AF37]/70 hover:bg-[#1B5E3A]"
                             data-testid={`peak-achievement-${a.id}`}
                         >
                             <p className="font-mono2 text-[10px] uppercase tracking-[0.25em] text-stone-600">{a.year || "Career"}</p>

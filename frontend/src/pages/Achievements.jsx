@@ -114,8 +114,8 @@ const Achievements = () => {
                                         animate={{ opacity: 1, y: 0 }}
                                         exit={{ opacity: 0, scale: 0.97 }}
                                         transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
-                                        className={`group flex flex-col border bg-[#142B21] p-7 transition-all duration-300 hover:-translate-y-1 ${
-                                            topTier === "gold" ? "border-[#D4AF37]/30 hover:border-[#D4AF37]/60" : "border-border hover:border-stone-500"
+                                        className={`group flex flex-col border bg-[#142B21] p-7 transition-all duration-300 hover:-translate-y-1 hover:bg-[#1B5E3A] ${
+                                            topTier === "gold" ? "border-[#D4AF37]/30 hover:border-[#D4AF37]/60" : "border-border hover:border-[#D4AF37]/60"
                                         }`}
                                         data-testid={`achievement-card-${a.id}`}
                                     >
