@@ -38,6 +38,8 @@ Owner credibility first; premium dark UI; real imagery only; WhatsApp-first conv
 - Socials: gym IG/FB + owner IG/FB/YouTube in owner showcase, About, Achievements wall-of-proof, Contact, Footer, Home follow strip
 - PUBLIC GALLERY: backend FastAPI + Emergent object storage (EMERGENT_LLM_KEY in backend/.env) + MongoDB `gallery_uploads` (soft-delete). Endpoints: GET/POST /api/gallery, GET /api/gallery/file/{id}, DELETE /api/gallery/{id}. Validation: jpg/png/webp only, 8MB max, UUID filenames, captions ≤140 chars. Frontend Community Wall on /gallery: + POST PICTURE modal (choose→preview→caption→upload→toast), per-image REMOVE with confirmation dialog, lightbox for uploads. Existing 13 curated images untouched and not removable. Security headers middleware added to backend.
 
+- ACHIEVEMENTS LIVE CRUD (public by explicit owner request — NO auth/admin panel): achievements moved from static content.js to MongoDB `achievements` collection (seeded once with the original 14). Backend endpoints: GET/POST/PUT/DELETE /api/achievements + GET /api/achievements/file/{id} (images in object storage, deleted with their achievement). Achievements page has subtle inline EDIT / + ADD ACHIEVEMENT / REMOVE controls, a full form modal (name, year, location, organization, multi-row category+medal editor, description, image upload with preview), and a delete confirmation that identifies the achievement. Filters/sections/design unchanged.
+
 ## Backlog
 - P0: Add remaining user photos when uploaded (gallery + sections)
 - P1: Production hosting headers (CSP/HSTS/X-Content-Type-Options) — needs server config at deploy

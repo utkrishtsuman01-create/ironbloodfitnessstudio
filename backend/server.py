@@ -182,6 +182,210 @@ async def startup_storage():
         logger.error(f"Object storage init failed: {exc}")
 
 
+# ---------------- Achievements (public, directly editable) ----------------
+import json as jsonlib
+
+ALLOWED_TIERS = {"gold", "silver", "bronze", "ranking"}
+
+ACHIEVEMENT_SEED = [
+    {"title": "Junior Mr. India (IBBF)", "year": "2016", "location": "Coimbatore, Tamil Nadu", "org": "IBBF", "description": "", "results": [{"label": "Gold Medal", "tier": "gold"}]},
+    {"title": "Junior Mr. India (IBBF)", "year": "2017", "location": "Maharashtra", "org": "IBBF", "description": "", "results": [{"label": "Gold Medal", "tier": "gold"}]},
+    {"title": "Mr. World 2018, Delhi", "year": "2018", "location": "Delhi", "org": "National Bodybuilding Union International (NBBUI)", "description": "", "results": [{"label": "Bodybuilding — Gold Medal", "tier": "gold"}, {"label": "Classic Physique — Gold Medal", "tier": "gold"}]},
+    {"title": "Mr. Universe 2023", "year": "2023", "location": "Thailand, Pattaya", "org": "", "description": "", "results": [{"label": "Bodybuilding — Gold Medal", "tier": "gold"}, {"label": "Classic Bodybuilding — Gold Medal", "tier": "gold"}]},
+    {"title": "Mr. Asia 2019", "year": "2019", "location": "Bangalore", "org": "", "description": "", "results": [{"label": "Bodybuilding — Silver Medal", "tier": "silver"}]},
+    {"title": "Mr. Asia 2019", "year": "2019", "location": "Bangalore", "org": "", "description": "", "results": [{"label": "Sports Model — Bronze Medal", "tier": "bronze"}]},
+    {"title": "Mr. India (Senior) 2019", "year": "2019", "location": "Kochi / Kerala", "org": "", "description": "", "results": [{"label": "Bodybuilding — Silver Medal", "tier": "silver"}]},
+    {"title": "Mr. Bengal", "year": "", "location": "West Bengal", "org": "Various Associations", "description": "", "results": [{"label": "13 Times — Gold Medal", "tier": "gold"}, {"label": "4 Times — Silver Medal", "tier": "silver"}, {"label": "3 Times — 3rd Place", "tier": "bronze"}]},
+    {"title": "The Fit Expo Kolkata 2017", "year": "2017", "location": "Kolkata", "org": "", "description": "", "results": [{"label": "Bronze Medalist", "tier": "bronze"}]},
+    {"title": "Numerous Other Championships", "year": "", "location": "India", "org": "", "description": "", "results": [{"label": "Bodybuilding & Men's Physique Championships", "tier": "ranking"}]},
+    {"title": "Satisb Sugar Classic Bodybuilding Championship 2018", "year": "2018", "location": "Belgaum, Andhra Pradesh", "org": "", "description": "", "results": [{"label": "All India — 7th Position", "tier": "ranking"}]},
+    {"title": "Federation Cup 2018", "year": "2018", "location": "Patna, Bihar", "org": "IBBF", "description": "", "results": [{"label": "All India — 7th Position", "tier": "ranking"}]},
+    {"title": "Senior Mr. India 2018", "year": "2018", "location": "Pune, India", "org": "", "description": "", "results": [{"label": "Positioned in Top 15", "tier": "ranking"}]},
+    {"title": "Mr. Asia & Mr. World Selection 2018", "year": "2018", "location": "Chhattisgarh", "org": "", "description": "", "results": [{"label": "Positioned in Top 10", "tier": "ranking"}]},
+]
+
+
+async def seed_achievements():
+    if await db.achievements.count_documents({}) > 0:
+        return
+    now = datetime.now(timezone.utc).isoformat()
+    docs = [
+        {"id": str(uuid.uuid4()), "sort": i, "image": None, "created_at": now, **a}
+        for i, a in enumerate(ACHIEVEMENT_SEED)
+    ]
+    await db.achievements.insert_many(docs)
+    logger.info("Seeded %d achievements", len(docs))
+
+
+def delete_object(path: str):
+    resp = requests.delete(
+        f"{STORAGE_URL}/objects/{path}",
+        headers={"X-Storage-Key": init_storage()},
+        timeout=30,
+    )
+    resp.raise_for_status()
+    return resp.json()
+
+
+def parse_achievement_form(title, year, location, org, description, results_raw):
+    title = (title or "").strip()
+    if len(title) < 2:
+        raise HTTPException(status_code=400, detail="Achievement name is required.")
+    try:
+        results = jsonlib.loads(results_raw or "[]")
+    except Exception:
+        raise HTTPException(status_code=400, detail="Invalid results data.")
+    if not isinstance(results, list):
+        raise HTTPException(status_code=400, detail="Invalid results data.")
+    cleaned = []
+    for r in results:
+        label = str(r.get("label", "")).strip()[:140]
+        tier = str(r.get("tier", "")).strip().lower()
+        if not label:
+            continue
+        if tier not in ALLOWED_TIERS:
+            raise HTTPException(status_code=400, detail="Invalid medal type.")
+        cleaned.append({"label": label, "tier": tier})
+    if not cleaned:
+        raise HTTPException(status_code=400, detail="Add at least one category / result.")
+    return {
+        "title": title[:200],
+        "year": (year or "").strip()[:20],
+        "location": (location or "").strip()[:140],
+        "org": (org or "").strip()[:160],
+        "description": (description or "").strip()[:400],
+        "results": cleaned,
+    }
+
+
+async def store_achievement_image(file):
+    content_type = (file.content_type or "").lower()
+    if content_type not in ALLOWED_IMAGE_TYPES:
+        raise HTTPException(status_code=400, detail="Unsupported file type. Please upload a JPG, PNG or WEBP image.")
+    data = await file.read()
+    if not data:
+        raise HTTPException(status_code=400, detail="The selected file is empty.")
+    if len(data) > MAX_UPLOAD_BYTES:
+        raise HTTPException(status_code=400, detail="Image is too large. Maximum size is 8 MB.")
+    path = f"{APP_NAME}/achievements/{uuid.uuid4()}.{ALLOWED_IMAGE_TYPES[content_type]}"
+    try:
+        put_object(path, data, content_type)
+    except Exception as exc:
+        logger.error(f"Achievement image storage failure: {exc}")
+        raise HTTPException(status_code=502, detail="Image upload failed. Please try again.")
+    return {"path": path, "content_type": content_type, "size": len(data)}
+
+
+@api_router.get("/achievements")
+async def list_achievements():
+    docs = await db.achievements.find({}, {"_id": 0}).sort([("sort", 1), ("created_at", 1)]).to_list(500)
+    if not docs:
+        await seed_achievements()
+        docs = await db.achievements.find({}, {"_id": 0}).sort([("sort", 1), ("created_at", 1)]).to_list(500)
+    return {"items": docs}
+
+
+@api_router.post("/achievements", status_code=201)
+async def create_achievement(
+    title: str = Form(""),
+    year: str = Form(""),
+    location: str = Form(""),
+    org: str = Form(""),
+    description: str = Form(""),
+    results: str = Form("[]"),
+    file: UploadFile = File(None),
+):
+    fields = parse_achievement_form(title, year, location, org, description, results)
+    image = None
+    if file is not None and file.filename:
+        image = await store_achievement_image(file)
+    top = await db.achievements.find_one({}, sort=[("sort", -1)])
+    doc = {
+        "id": str(uuid.uuid4()),
+        "sort": (top["sort"] + 1) if top else 0,
+        "image": image,
+        "created_at": datetime.now(timezone.utc).isoformat(),
+        **fields,
+    }
+    await db.achievements.insert_one(doc)
+    doc.pop("_id", None)
+    return doc
+
+
+@api_router.put("/achievements/{achievement_id}")
+async def update_achievement(
+    achievement_id: str,
+    title: str = Form(""),
+    year: str = Form(""),
+    location: str = Form(""),
+    org: str = Form(""),
+    description: str = Form(""),
+    results: str = Form("[]"),
+    remove_image: str = Form("false"),
+    file: UploadFile = File(None),
+):
+    existing = await db.achievements.find_one({"id": achievement_id})
+    if not existing:
+        raise HTTPException(status_code=404, detail="Achievement not found")
+    fields = parse_achievement_form(title, year, location, org, description, results)
+    image = existing.get("image")
+    if file is not None and file.filename:
+        new_image = await store_achievement_image(file)
+        if image:
+            try:
+                delete_object(image["path"])
+            except Exception as exc:
+                logger.warning(f"Old achievement image cleanup failed: {exc}")
+        image = new_image
+    elif remove_image == "true" and image:
+        try:
+            delete_object(image["path"])
+        except Exception as exc:
+            logger.warning(f"Achievement image removal failed: {exc}")
+        image = None
+    await db.achievements.update_one({"id": achievement_id}, {"$set": {**fields, "image": image}})
+    updated = await db.achievements.find_one({"id": achievement_id}, {"_id": 0})
+    return updated
+
+
+@api_router.get("/achievements/file/{achievement_id}")
+async def get_achievement_file(achievement_id: str):
+    record = await db.achievements.find_one({"id": achievement_id})
+    if not record or not record.get("image"):
+        raise HTTPException(status_code=404, detail="Image not found")
+    try:
+        data, content_type = get_object(record["image"]["path"])
+    except Exception:
+        raise HTTPException(status_code=404, detail="Image not found")
+    return Response(
+        content=data,
+        media_type=record["image"].get("content_type", content_type),
+        headers={"Cache-Control": "public, max-age=86400"},
+    )
+
+
+@api_router.delete("/achievements/{achievement_id}")
+async def delete_achievement(achievement_id: str):
+    existing = await db.achievements.find_one({"id": achievement_id})
+    if not existing:
+        raise HTTPException(status_code=404, detail="Achievement not found")
+    if existing.get("image"):
+        try:
+            delete_object(existing["image"]["path"])
+        except Exception as exc:
+            logger.warning(f"Achievement image delete failed: {exc}")
+    await db.achievements.delete_one({"id": achievement_id})
+    return {"ok": True}
+
+
+@app.on_event("startup")
+async def startup_achievements():
+    try:
+        await seed_achievements()
+    except Exception as exc:
+        logger.error(f"Achievement seeding failed: {exc}")
+
+
 # Include the router in the main app
 app.include_router(api_router)
 
