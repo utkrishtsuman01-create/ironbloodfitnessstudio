@@ -13,7 +13,7 @@ const ITEMS = [
 
 export const Marquee = ({ dark = false }) => (
     <div
-        className={`marquee-paused overflow-hidden border-y border-border py-4 sm:py-5 ${dark ? "bg-[#16110A]" : "bg-[#132B20]"}`}
+        className={`marquee-paused overflow-hidden border-y border-border py-4 sm:py-5 ${dark ? "bg-[#2A2010]" : "bg-[#241B0C]"}`}
         aria-label={`Career highlights of ${BUSINESS.owner}`}
     >
         <div className="animate-marquee flex w-max whitespace-nowrap">

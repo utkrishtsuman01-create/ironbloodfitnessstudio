@@ -9,7 +9,7 @@ Premium, high-end professional website for IRONBLOOD FITNESS STUDIO ♾️, a re
 - Content single-sourced in `src/data/content.js` (business info, 14 achievements, 14 services, 6 specializations, 10 reviews, 11 images, facilities)
 - `src/components/Seo.jsx` sets per-page title/description/canonical/OG; JSON-LD ExerciseGym schema in `public/index.html`; `robots.txt`, `sitemap.xml`, `favicon.svg` in `public/`
 - 11 real client photos in `public/images/` (PIL-optimized). NOTE: CDN artifact order ≠ display order — mapping verified visually and filenames corrected by rename on 2026-09-21.
-- BRAND THEME (2026-09-21 rebrand): DARK GOLD (#C9A227/#E3B94E/#D9B85C) + DEEP GREEN (#132B20/#0C1D14) + LIGHT GREEN (#8CC084, ranking tier) + CREAM/WHITE on a dark-gold base #16110A (cards #211B10, borders #3A2E1A, warm stone grays). Previous red/black theme fully replaced.
+- BRAND THEME (2026-09-21 rebrand, deepened same day): dominant DARK ANTIQUE GOLD background #2A2010 (alt sections #241B0C, borders #4A3A1C-ish), DEEP GREEN #142B21 cards + #0F2A1E header/CTA banners/mobile menu + #0C1D14 footer, accents gold #C9A227/#E3B94E/#D9B85C + light green #8CC084 (ranking tier), cream/white text. Gold is the dominant background identity — no black surfaces remain.
 - Official logo: `public/images/logo.png` (user-supplied, black background un-multiplied to true transparency via PIL/numpy). Used in header, hero, footer. Favicon recolored gold/green.
 - Homepage hero (2026-09-21): NEW owner podium photo `bapi-podium.jpg` as FULL BACKGROUND (object-[50%_16%], scale-110 parallax, dark-gold gradient overlays); old framed portrait card removed (bapi-pose.jpg still used in About + Gallery).
 

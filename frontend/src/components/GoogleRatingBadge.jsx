@@ -8,7 +8,7 @@ export const GoogleRatingBadge = ({ testId = "google-rating-badge", compact = fa
         rel="noopener noreferrer"
         data-testid={testId}
         aria-label={`Rated ${BUSINESS.googleRating} out of 5 from ${BUSINESS.googleReviewCount} Google reviews — open the Google listing`}
-        className={`group inline-flex items-center gap-4 border border-border bg-[#211B10] transition-colors duration-300 hover:border-[#D4AF37]/50 ${
+        className={`group inline-flex items-center gap-4 border border-border bg-[#142B21] transition-colors duration-300 hover:border-[#D4AF37]/50 ${
             compact ? "px-4 py-3" : "px-6 py-4"
         }`}
     >

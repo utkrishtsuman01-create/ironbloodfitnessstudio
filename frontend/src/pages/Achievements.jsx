@@ -56,7 +56,7 @@ const Achievements = () => {
                 </div>
             </section>
 
-            <section className="border-b border-border bg-[#132B20] py-16 sm:py-20" data-testid="on-stage-section">
+            <section className="border-b border-border bg-[#241B0C] py-16 sm:py-20" data-testid="on-stage-section">
                 <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                     <div className="flex items-end justify-between gap-6">
                         <h2 className="font-display text-3xl font-extrabold uppercase tracking-tight text-white sm:text-4xl">On stage</h2>
@@ -114,7 +114,7 @@ const Achievements = () => {
                                         animate={{ opacity: 1, y: 0 }}
                                         exit={{ opacity: 0, scale: 0.97 }}
                                         transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
-                                        className={`group flex flex-col border bg-[#211B10] p-7 transition-all duration-300 hover:-translate-y-1 ${
+                                        className={`group flex flex-col border bg-[#142B21] p-7 transition-all duration-300 hover:-translate-y-1 ${
                                             topTier === "gold" ? "border-[#D4AF37]/30 hover:border-[#D4AF37]/60" : "border-border hover:border-stone-500"
                                         }`}
                                         data-testid={`achievement-card-${a.id}`}
@@ -144,7 +144,7 @@ const Achievements = () => {
                     </motion.div>
 
                     <Reveal className="mt-16">
-                        <div className="flex flex-col items-start gap-6 border border-border bg-[#132B20] p-8 sm:flex-row sm:items-center">
+                        <div className="flex flex-col items-start gap-6 border border-border bg-[#241B0C] p-8 sm:flex-row sm:items-center">
                             <img
                                 src={IMAGES.trophyWall.src}
                                 alt={IMAGES.trophyWall.alt}

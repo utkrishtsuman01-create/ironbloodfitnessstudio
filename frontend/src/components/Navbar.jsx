@@ -33,7 +33,7 @@ export const Navbar = () => {
         <>
         <header
             className={`fixed inset-x-0 top-0 z-50 border-b transition-colors duration-300 ${
-                scrolled || open ? "border-border bg-[#16110A]/90 backdrop-blur-md" : "border-transparent bg-[#16110A]/60 backdrop-blur-md"
+                scrolled || open ? "border-border bg-[#0F2A1E]/95 backdrop-blur-md" : "border-transparent bg-[#241B0C]/70 backdrop-blur-md"
             }`}
         >
             <nav className="max-w-7xl mx-auto flex h-20 items-center justify-between px-4 sm:px-6 lg:px-8" aria-label="Primary">
@@ -85,7 +85,7 @@ export const Navbar = () => {
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: -12 }}
                         transition={{ duration: 0.28, ease: "easeOut" }}
-                        className="lg:hidden fixed inset-0 top-20 z-40 bg-[#16110A] overflow-y-auto"
+                        className="lg:hidden fixed inset-0 top-20 z-40 bg-[#0F2A1E] overflow-y-auto"
                         data-testid="nav-mobile-menu"
                     >
                         <ul className="px-6 pt-8 pb-6 space-y-1">

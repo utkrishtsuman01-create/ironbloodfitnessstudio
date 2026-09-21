@@ -4,11 +4,11 @@
 
 @layer base {
     :root {
-        --background: 36 38% 6%;
+        --background: 39 45% 11%;
         --foreground: 42 32% 92%;
-        --card: 37 33% 9%;
+        --card: 158 36% 12%;
         --card-foreground: 42 32% 92%;
-        --popover: 37 33% 9%;
+        --popover: 158 36% 12%;
         --popover-foreground: 42 32% 92%;
         --primary: 45 66% 45%;
         --primary-foreground: 36 40% 7%;
@@ -20,8 +20,8 @@
         --accent-foreground: 36 40% 7%;
         --destructive: 0 70% 50%;
         --destructive-foreground: 42 32% 92%;
-        --border: 36 28% 16%;
-        --input: 36 24% 20%;
+        --border: 38 42% 20%;
+        --input: 38 30% 24%;
         --ring: 45 66% 50%;
         --radius: 0.125rem;
     }
@@ -48,7 +48,7 @@
     }
     ::selection {
         background: #c9a227;
-        color: #16110a;
+        color: #2a2010;
     }
     :focus-visible {
         outline: 2px solid #e3b94e;

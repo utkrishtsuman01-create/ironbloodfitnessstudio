@@ -19,7 +19,7 @@ const Services = () => (
         <header className="relative overflow-hidden border-b border-border pt-40 pb-20 sm:pb-28">
             <div className="absolute inset-0" aria-hidden="true">
                 <img src={IMAGES.memberDumbbell.src} alt="" className="h-full w-full object-cover object-center opacity-25" />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#16110A] via-[#16110A]/75 to-[#16110A]/50" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#2A2010] via-[#2A2010]/75 to-[#2A2010]/50" />
             </div>
             <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                 <p className="font-mono2 text-[11px] sm:text-xs uppercase tracking-[0.3em] text-[#D9B85C]">Services</p>
@@ -44,7 +44,7 @@ const Services = () => (
                             <motion.article
                                 key={s.title}
                                 variants={staggerItem}
-                                className="group bg-[#16110A] p-8 transition-colors duration-300 hover:bg-[#211B10]"
+                                className="group bg-[#2A2010] p-8 transition-colors duration-300 hover:bg-[#142B21]"
                                 data-testid={`service-card-${i + 1}`}
                             >
                                 <div className="flex items-start justify-between">
@@ -63,7 +63,7 @@ const Services = () => (
         <section className="relative overflow-hidden border-y border-border" data-testid="services-training-banner">
             <div className="absolute inset-0" aria-hidden="true">
                 <img src={IMAGES.memberPress.src} alt="" loading="lazy" className="h-full w-full object-cover object-center" />
-                <div className="absolute inset-0 bg-[#16110A]/80" />
+                <div className="absolute inset-0 bg-[#2A2010]/80" />
             </div>
             <div className="relative mx-auto max-w-7xl px-4 py-24 sm:px-6 lg:px-8">
                 <Reveal>

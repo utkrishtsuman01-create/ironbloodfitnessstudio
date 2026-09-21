@@ -8,11 +8,11 @@ export const CtaBanner = ({
     body = "Walk into Ironblood Fitness Studio in Bansdroni Park, Kolkata — or send an enquiry and we will take it from there.",
     testId = "cta-banner",
 }) => (
-    <section className="relative overflow-hidden border-y border-border bg-[#132B20]">
+    <section className="relative overflow-hidden border-y border-border bg-[#0F2A1E]">
         <div
             aria-hidden="true"
             className="absolute inset-0 opacity-[0.35]"
-            style={{ background: "radial-gradient(60% 120% at 85% 50%, rgba(214,28,36,0.22), transparent 60%)" }}
+            style={{ background: "radial-gradient(60% 120% at 85% 50%, rgba(201,162,39,0.22), transparent 60%)" }}
         />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 sm:py-28">
             <Reveal>

@@ -48,7 +48,7 @@ export const EnquiryForm = ({ testId = "enquiry" }) => {
     };
 
     const inputCls = (bad) =>
-        `w-full bg-[#132B20] border px-4 py-4 text-sm text-white placeholder:text-stone-600 transition-colors focus:outline-none ${
+        `w-full bg-[#241B0C] border px-4 py-4 text-sm text-white placeholder:text-stone-600 transition-colors focus:outline-none ${
             bad ? "border-[#C9A227]" : "border-stone-800 focus:border-stone-500"
         }`;
 

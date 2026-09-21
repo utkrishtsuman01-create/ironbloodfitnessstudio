@@ -106,7 +106,7 @@ const Contact = () => (
                 </div>
 
                 <Reveal delay={0.1}>
-                    <div className="border border-border bg-[#132B20] p-7 sm:p-10" data-testid="contact-enquiry-panel">
+                    <div className="border border-border bg-[#241B0C] p-7 sm:p-10" data-testid="contact-enquiry-panel">
                         <h2 className="font-display text-2xl font-extrabold uppercase text-white sm:text-3xl">Send an enquiry</h2>
                         <p className="mt-3 text-sm leading-relaxed text-stone-500">
                             Fill this in and we will open WhatsApp with your message ready to send to the studio.

@@ -29,12 +29,12 @@ const Hero = () => {
                     className="h-full w-full object-cover object-[50%_16%]"
                 />
             </motion.div>
-            <div aria-hidden="true" className="absolute inset-0 bg-gradient-to-t from-[#16110A] via-[#16110A]/45 to-[#16110A]/30" />
-            <div aria-hidden="true" className="absolute inset-0 bg-gradient-to-r from-[#16110A]/95 via-[#16110A]/55 to-[#16110A]/10" />
+            <div aria-hidden="true" className="absolute inset-0 bg-gradient-to-t from-[#2A2010] via-[#2A2010]/45 to-[#2A2010]/30" />
+            <div aria-hidden="true" className="absolute inset-0 bg-gradient-to-r from-[#2A2010]/95 via-[#2A2010]/55 to-[#2A2010]/10" />
             <div
                 aria-hidden="true"
                 className="absolute inset-0"
-                style={{ background: "radial-gradient(60% 55% at 72% 22%, transparent 25%, rgba(22,17,10,0.45) 100%)" }}
+                style={{ background: "radial-gradient(60% 55% at 72% 22%, transparent 25%, rgba(26,20,8,0.45) 100%)" }}
             />
 
             <motion.div
@@ -90,7 +90,7 @@ const Hero = () => {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 1.1, duration: 0.8 }}
-                className="relative z-10 border-t border-white/10 bg-[#16110A]/70 backdrop-blur-md"
+                className="relative z-10 border-t border-white/10 bg-[#2A2010]/70 backdrop-blur-md"
             >
                 <dl className="mx-auto grid max-w-7xl grid-cols-2 divide-x divide-white/10 lg:grid-cols-4" data-testid="hero-stats">
                     {[
@@ -157,7 +157,7 @@ const StudioIntro = () => (
 );
 
 const OwnerShowcase = () => (
-    <section className="border-y border-border bg-[#132B20] py-24 sm:py-32" data-testid="owner-showcase-section">
+    <section className="border-y border-border bg-[#241B0C] py-24 sm:py-32" data-testid="owner-showcase-section">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <SectionHeading index="02" eyebrow="Chapter 02 — The Coach" title="Bapi Das" />
             <div className="mt-14 grid gap-12 lg:grid-cols-12">
@@ -169,7 +169,7 @@ const OwnerShowcase = () => (
                             loading="lazy"
                             className="w-full border border-border object-cover"
                         />
-                        <div className="absolute -bottom-6 -right-3 hidden w-44 border border-[#C9A227]/40 bg-[#16110A] p-1.5 sm:block">
+                        <div className="absolute -bottom-6 -right-3 hidden w-44 border border-[#C9A227]/40 bg-[#2A2010] p-1.5 sm:block">
                             <img src={IMAGES.trophyWall.src} alt={IMAGES.trophyWall.alt} loading="lazy" className="w-full object-cover" />
                         </div>
                     </div>
@@ -195,7 +195,7 @@ const OwnerShowcase = () => (
                             <motion.div
                                 key={t}
                                 variants={staggerItem}
-                                className="flex items-start gap-4 border border-border bg-[#211B10] p-5 transition-colors duration-300 hover:border-[#C9A227]/50"
+                                className="flex items-start gap-4 border border-border bg-[#142B21] p-5 transition-colors duration-300 hover:border-[#C9A227]/50"
                             >
                                 <Icon className="mt-1 h-5 w-5 shrink-0 text-[#D4AF37]" aria-hidden="true" />
                                 <div>
@@ -240,7 +240,7 @@ const AchievementPreview = () => {
                         <motion.article
                             key={a.id}
                             variants={staggerItem}
-                            className="group border border-border bg-[#211B10] p-6 transition-all duration-300 hover:-translate-y-1 hover:border-[#D4AF37]/50"
+                            className="group border border-border bg-[#142B21] p-6 transition-all duration-300 hover:-translate-y-1 hover:border-[#D4AF37]/50"
                             data-testid={`peak-achievement-${a.id}`}
                         >
                             <p className="font-mono2 text-[10px] uppercase tracking-[0.25em] text-stone-600">{a.year || "Career"}</p>
@@ -292,7 +292,7 @@ const AchievementPreview = () => {
 };
 
 const Experience = () => (
-    <section className="relative overflow-hidden border-y border-border bg-[#132B20] py-24 sm:py-32" data-testid="experience-section">
+    <section className="relative overflow-hidden border-y border-border bg-[#241B0C] py-24 sm:py-32" data-testid="experience-section">
         <span aria-hidden="true" className="pointer-events-none absolute -top-10 right-0 select-none font-display text-[26rem] font-black leading-none text-white/[0.03]">
             12
         </span>
@@ -320,7 +320,7 @@ const Specializations = () => (
                     <motion.div
                         key={s.title}
                         variants={staggerItem}
-                        className="group bg-[#16110A] p-8 transition-colors duration-300 hover:bg-[#211B10]"
+                        className="group bg-[#2A2010] p-8 transition-colors duration-300 hover:bg-[#142B21]"
                         data-testid={`specialization-${i + 1}`}
                     >
                         <p className="font-mono2 text-xs text-[#D9B85C]">0{i + 1}</p>
@@ -339,8 +339,8 @@ const TrainingBanner = () => (
     <section className="relative overflow-hidden border-y border-border" data-testid="training-banner-section">
         <div className="absolute inset-0" aria-hidden="true">
             <img src={IMAGES.memberPress.src} alt="" loading="lazy" className="h-full w-full object-cover object-center" />
-            <div className="absolute inset-0 bg-[#16110A]/82" />
-            <div className="absolute inset-0 bg-gradient-to-r from-[#16110A] via-transparent to-[#16110A]/60" />
+            <div className="absolute inset-0 bg-[#2A2010]/82" />
+            <div className="absolute inset-0 bg-gradient-to-r from-[#2A2010] via-transparent to-[#2A2010]/60" />
         </div>
         <div className="relative mx-auto max-w-7xl px-4 py-24 sm:px-6 sm:py-32 lg:px-8">
             <Reveal>
@@ -354,7 +354,7 @@ const TrainingBanner = () => (
                     <motion.p
                         key={s.title}
                         variants={staggerItem}
-                        className="border border-white/15 bg-[#16110A]/70 px-4 py-4 font-display text-sm font-bold uppercase tracking-wide text-stone-200 backdrop-blur-sm"
+                        className="border border-white/15 bg-[#2A2010]/70 px-4 py-4 font-display text-sm font-bold uppercase tracking-wide text-stone-200 backdrop-blur-sm"
                     >
                         {s.title}
                     </motion.p>
@@ -441,7 +441,7 @@ const GalleryPreview = () => (
 );
 
 const Reviews = () => (
-    <section className="border-t border-border bg-[#132B20] py-24 sm:py-32" data-testid="reviews-section">
+    <section className="border-t border-border bg-[#241B0C] py-24 sm:py-32" data-testid="reviews-section">
         <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
             <p className="font-mono2 text-[11px] sm:text-xs uppercase tracking-[0.3em] text-[#D9B85C]">Chapter 09 — Members</p>
             <div className="mt-4 flex flex-wrap items-end justify-between gap-6">

@@ -17,7 +17,7 @@ const Facilities = () => (
         <header className="relative overflow-hidden border-b border-border pt-40 pb-20 sm:pb-28">
             <div className="absolute inset-0" aria-hidden="true">
                 <img src={IMAGES.gymFloor1.src} alt="" className="h-full w-full object-cover object-center opacity-25" />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#16110A] via-[#16110A]/75 to-[#16110A]/50" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#2A2010] via-[#2A2010]/75 to-[#2A2010]/50" />
             </div>
             <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                 <p className="font-mono2 text-[11px] sm:text-xs uppercase tracking-[0.3em] text-[#D9B85C]">Facilities</p>
@@ -63,7 +63,7 @@ const Facilities = () => (
             </div>
         </section>
 
-        <section className="border-t border-border bg-[#132B20] py-24 sm:py-32" data-testid="facilities-atmosphere-section">
+        <section className="border-t border-border bg-[#241B0C] py-24 sm:py-32" data-testid="facilities-atmosphere-section">
             <div className="mx-auto grid max-w-7xl items-center gap-12 px-4 sm:px-6 lg:grid-cols-2 lg:px-8">
                 <Reveal>
                     <h2 className="font-display text-4xl font-extrabold uppercase leading-[0.95] tracking-tight text-white sm:text-5xl">
