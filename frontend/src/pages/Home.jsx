@@ -9,7 +9,9 @@ import Marquee from "@/components/Marquee";
 import CtaBanner from "@/components/CtaBanner";
 import ReviewCarousel from "@/components/ReviewCarousel";
 import GoogleRatingBadge from "@/components/GoogleRatingBadge";
-import { BUSINESS, IMAGES, GALLERY, ACHIEVEMENTS, SPECIALIZATIONS, SERVICES, FACILITIES, EXPERIENCE_COPY, MEDAL_STYLES, telHref, waHref } from "@/data/content";
+import SocialIcons from "@/components/SocialIcons";
+import HoursBlock from "@/components/HoursBlock";
+import { BUSINESS, IMAGES, GALLERY, ACHIEVEMENTS, SPECIALIZATIONS, SERVICES, SOCIALS, EXPERIENCE_COPY, MEDAL_STYLES, telHref, waHref } from "@/data/content";
 
 const PEAK_IDS = [4, 3, 1, 8];
 
@@ -126,7 +128,7 @@ const StudioIntro = () => (
                     train properly.
                 </p>
                 <ul className="mt-8 space-y-3">
-                    {["Serious bodybuilding culture", "Professional coaching on the floor", "Open 7 days · 6:00 AM – 11:00 PM"].map((t) => (
+                    {["Serious bodybuilding culture", "Professional coaching on the floor", "Open Mon – Sat · 6:30 AM – 10:45 PM · Sunday closed"].map((t) => (
                         <li key={t} className="flex items-center gap-3 text-sm text-stone-300">
                             <span className="h-1.5 w-1.5 rotate-45 bg-[#C9A227]" aria-hidden="true" /> {t}
                         </li>
@@ -222,6 +224,10 @@ const OwnerShowcase = () => (
                         >
                             <MessageCircle className="h-5 w-5" aria-hidden="true" /> Enquire on WhatsApp
                         </a>
+                    </Reveal>
+                    <Reveal delay={0.2} className="mt-8">
+                        <p className="font-mono2 text-[10px] uppercase tracking-[0.25em] text-stone-500">Follow Bapi Das</p>
+                        <SocialIcons links={SOCIALS.owner} tone="onGreen" testId="home-owner-social" className="mt-3" />
                     </Reveal>
                 </div>
             </div>
@@ -440,10 +446,128 @@ const GalleryPreview = () => (
     </section>
 );
 
+const PricingPreview = () => (
+    <section className="on-gold border-t border-border py-24 sm:py-32" data-testid="pricing-preview-section">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <SectionHeading index="08" eyebrow="Chapter 08 — Plans & Pricing" title="Straight pricing" />
+            <Stagger className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-4" gap={0.06}>
+                {[
+                    ["Gym Membership", "₹888", "/ month", "pricing-preview-gym"],
+                    ["PT Transformation", "₹8,888", "/ 3 months", "pricing-preview-pt"],
+                    ["Online Coaching", "₹8,888", "/ month", "pricing-preview-online"],
+                    ["Diet Plan", "₹888", "complete plan", "pricing-preview-diet"],
+                ].map(([label, price, per, tid]) => (
+                    <motion.div
+                        key={label}
+                        variants={staggerItem}
+                        className="border border-border bg-[#142B21] p-7 transition-all duration-300 hover:-translate-y-1 hover:border-[#D4AF37]/60 hover:bg-[#1B5E3A]"
+                        data-testid={tid}
+                    >
+                        <p className="font-mono2 text-[10px] uppercase tracking-[0.25em] text-[#E3B94E]">{label}</p>
+                        <p className="mt-4 font-display text-4xl font-black text-white sm:text-5xl">{price}</p>
+                        <p className="mt-1 font-mono2 text-[10px] uppercase tracking-[0.2em] text-stone-400">{per}</p>
+                    </motion.div>
+                ))}
+            </Stagger>
+            <Reveal className="mt-10 flex flex-col gap-4 sm:flex-row">
+                <Link
+                    to="/memberships"
+                    data-testid="pricing-preview-memberships-button"
+                    className="inline-flex items-center justify-center gap-3 bg-[#173322] px-8 py-4 font-display text-base font-bold uppercase tracking-wider text-[#F4EDDD] transition-colors hover:bg-[#1B5E3A]"
+                >
+                    View Membership Plans <ArrowRight className="h-4 w-4" aria-hidden="true" />
+                </Link>
+                <Link
+                    to="/online-coaching"
+                    data-testid="pricing-preview-online-button"
+                    className="inline-flex items-center justify-center gap-3 border border-[#173322] px-8 py-4 font-display text-base font-bold uppercase tracking-wider text-[#173322] transition-colors hover:bg-[#173322] hover:text-[#F4EDDD]"
+                >
+                    View Online Coaching <ArrowRight className="h-4 w-4" aria-hidden="true" />
+                </Link>
+            </Reveal>
+        </div>
+    </section>
+);
+
+const OnlineCoachingPreview = () => (
+    <section className="border-y border-border bg-[#123222] py-24 sm:py-32" data-testid="online-coaching-section">
+        <div className="mx-auto grid max-w-7xl items-center gap-12 px-4 sm:px-6 lg:grid-cols-2 lg:px-8">
+            <Reveal>
+                <p className="font-mono2 text-[11px] sm:text-xs uppercase tracking-[0.3em] text-[#D9B85C]">Chapter 09 — Online Coaching</p>
+                <h2 className="mt-4 font-display text-4xl font-extrabold uppercase leading-[0.95] tracking-tight text-white sm:text-5xl lg:text-6xl">
+                    Train with Bapi Das. <span className="text-stroke">From anywhere.</span>
+                </h2>
+                <p className="mt-6 max-w-lg text-base leading-relaxed text-stone-300">
+                    Online personal training transformation classes, bodybuilding & men's physique competition preparation, and standalone diet
+                    plans — coached remotely with the same discipline as the studio floor.
+                </p>
+                <div className="mt-8 flex flex-wrap gap-3">
+                    {["Online PT — ₹8,888/mo", "Contest Prep — ₹5,888/mo", "Diet Plan — ₹888"].map((t) => (
+                        <span key={t} className="border border-[#C9A227]/40 px-4 py-2.5 font-mono2 text-[11px] uppercase tracking-[0.15em] text-[#E3B94E]">
+                            {t}
+                        </span>
+                    ))}
+                </div>
+                <div className="mt-10 flex flex-col gap-4 sm:flex-row">
+                    <Link
+                        to="/online-coaching"
+                        data-testid="online-coaching-explore-button"
+                        className="inline-flex items-center justify-center gap-3 bg-[#C9A227] px-8 py-4 font-display text-base font-bold uppercase tracking-wider text-[#173322] transition-colors hover:bg-[#E3B94E]"
+                    >
+                        Explore Online Coaching <ArrowRight className="h-4 w-4" aria-hidden="true" />
+                    </Link>
+                    <a
+                        href={waHref}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        data-testid="online-coaching-whatsapp-button"
+                        className="inline-flex items-center justify-center gap-3 border border-[#C9A227]/60 px-8 py-4 font-display text-base font-bold uppercase tracking-wider text-white transition-colors hover:bg-[#C9A227] hover:text-[#173322]"
+                    >
+                        <MessageCircle className="h-4 w-4" aria-hidden="true" /> WhatsApp
+                    </a>
+                    <Link
+                        to="/contact"
+                        data-testid="online-coaching-enquire-button"
+                        className="inline-flex items-center justify-center gap-3 border border-[#C9A227]/60 px-8 py-4 font-display text-base font-bold uppercase tracking-wider text-white transition-colors hover:bg-[#C9A227] hover:text-[#173322]"
+                    >
+                        Enquire Now
+                    </Link>
+                </div>
+            </Reveal>
+            <Reveal delay={0.12}>
+                <div className="relative">
+                    <div aria-hidden="true" className="absolute -inset-3 border border-[#C9A227]/30" />
+                    <img
+                        src={IMAGES.bapiStageSide.src}
+                        alt={IMAGES.bapiStageSide.alt}
+                        loading="lazy"
+                        className="relative max-h-[520px] w-full border border-border object-cover object-top"
+                    />
+                </div>
+            </Reveal>
+        </div>
+    </section>
+);
+
+const FollowStrip = () => (
+    <section className="on-gold border-t border-border py-16 sm:py-20" data-testid="follow-section">
+        <div className="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 md:grid-cols-2 lg:px-8">
+            <Reveal>
+                <h2 className="font-display text-2xl font-extrabold uppercase tracking-tight text-white sm:text-3xl">Follow Ironblood Fitness Studio</h2>
+                <SocialIcons links={SOCIALS.gym} tone="onGold" testId="home-gym-social" className="mt-5" />
+            </Reveal>
+            <Reveal delay={0.1}>
+                <h2 className="font-display text-2xl font-extrabold uppercase tracking-tight text-white sm:text-3xl">Follow Bapi Das</h2>
+                <SocialIcons links={SOCIALS.owner} tone="onGold" testId="home-owner-social-follow" className="mt-5" />
+            </Reveal>
+        </div>
+    </section>
+);
+
 const Reviews = () => (
     <section className="border-t border-border bg-[#123222] py-24 sm:py-32" data-testid="reviews-section">
         <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
-            <p className="font-mono2 text-[11px] sm:text-xs uppercase tracking-[0.3em] text-[#D9B85C]">Chapter 09 — Members</p>
+            <p className="font-mono2 text-[11px] sm:text-xs uppercase tracking-[0.3em] text-[#D9B85C]">Chapter 10 — Members</p>
             <div className="mt-4 flex flex-wrap items-end justify-between gap-6">
                 <h2 className="font-display text-4xl font-extrabold uppercase tracking-tight text-white sm:text-5xl lg:text-6xl">
                     What our members say
@@ -461,7 +585,7 @@ const ContactStrip = () => (
     <section className="on-gold py-24 sm:py-32" data-testid="contact-strip-section">
         <div className="mx-auto grid max-w-7xl gap-12 px-4 sm:px-6 lg:grid-cols-2 lg:px-8">
             <Reveal>
-                <p className="font-mono2 text-[11px] sm:text-xs uppercase tracking-[0.3em] text-[#D9B85C]">Chapter 10 — Find Us</p>
+                <p className="font-mono2 text-[11px] sm:text-xs uppercase tracking-[0.3em] text-[#D9B85C]">Chapter 11 — Find Us</p>
                 <h2 className="mt-4 font-display text-4xl font-extrabold uppercase leading-[0.95] tracking-tight text-white sm:text-5xl">
                     Bansdroni Park, <span className="text-stroke-gold">Kolkata</span>
                 </h2>
@@ -470,9 +594,7 @@ const ContactStrip = () => (
                     <br />
                     {BUSINESS.addressLines[1]}
                 </address>
-                <p className="mt-4 font-mono2 text-xs uppercase tracking-[0.2em] text-stone-500">
-                    {BUSINESS.hoursDays} · {BUSINESS.hoursTime}
-                </p>
+                <HoursBlock tone="onGold" className="mt-7" />
             </Reveal>
             <Reveal delay={0.1} className="flex flex-col justify-center gap-4">
                 <a
@@ -513,13 +635,16 @@ const Home = () => (
         <TrainingBanner />
         <FacilitiesPreview />
         <GalleryPreview />
+        <PricingPreview />
         <CtaBanner
             testId="membership-cta-banner"
-            eyebrow="Chapter 08 — Membership"
+            eyebrow="Membership"
             title="Your strongest chapter starts here"
-            body="Contact us for current membership plans and pricing. No pressure, no fake offers — a straight conversation about your goals."
+            body="Transparent plans starting at ₹888/month. No pressure, no fake offers — a straight conversation about your goals."
         />
+        <OnlineCoachingPreview />
         <Reviews />
+        <FollowStrip />
         <ContactStrip />
     </>
 );

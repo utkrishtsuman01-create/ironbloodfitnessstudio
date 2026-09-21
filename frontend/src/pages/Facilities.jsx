@@ -26,7 +26,7 @@ const Facilities = () => (
                     <span className="block text-stroke">does the talking.</span>
                 </h1>
                 <p className="mt-6 flex items-center gap-2 font-mono2 text-xs uppercase tracking-[0.2em] text-stone-400">
-                    <Clock className="h-4 w-4 text-[#D9B85C]" aria-hidden="true" /> {BUSINESS.hoursDays} · {BUSINESS.hoursTime}
+                    <Clock className="h-4 w-4 text-[#D9B85C]" aria-hidden="true" /> {BUSINESS.hoursSummary}
                 </p>
             </div>
         </header>
@@ -74,7 +74,7 @@ const Facilities = () => (
                         is maintained daily and laid out for focused, uninterrupted sessions.
                     </p>
                     <ul className="mt-8 space-y-3">
-                        {["Strength, cardio and functional zones", "Trophy & achievement display", "Open every day of the week"].map((t) => (
+                        {["Strength, cardio and functional zones", "Trophy & achievement display", "Open Monday – Saturday · Sunday closed"].map((t) => (
                             <li key={t} className="flex items-center gap-3 text-sm text-stone-300">
                                 <span className="h-1.5 w-1.5 rotate-45 bg-[#C9A227]" aria-hidden="true" /> {t}
                             </li>

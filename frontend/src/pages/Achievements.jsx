@@ -3,7 +3,8 @@ import { motion, AnimatePresence } from "framer-motion";
 import Seo from "@/components/Seo";
 import { Reveal } from "@/components/Reveal";
 import CtaBanner from "@/components/CtaBanner";
-import { ACHIEVEMENTS, MEDAL_STYLES, IMAGES } from "@/data/content";
+import { ACHIEVEMENTS, MEDAL_STYLES, IMAGES, SOCIALS } from "@/data/content";
+import SocialIcons from "@/components/SocialIcons";
 
 const FILTERS = [
     { key: "all", label: "All" },
@@ -157,6 +158,10 @@ const Achievements = () => {
                                     Trophies, medals and certificates from these championships are displayed inside the studio — visit and see
                                     the record in person.
                                 </p>
+                                <div className="mt-5">
+                                    <p className="font-mono2 text-[10px] uppercase tracking-[0.25em] text-stone-500">Follow Bapi Das</p>
+                                    <SocialIcons links={SOCIALS.owner} tone="onGreen" testId="achievements-owner-social" className="mt-3" />
+                                </div>
                             </div>
                         </div>
                     </Reveal>

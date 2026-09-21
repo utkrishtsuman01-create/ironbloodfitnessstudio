@@ -38,14 +38,14 @@ export const Navbar = () => {
         >
             <nav className="max-w-7xl mx-auto flex h-20 items-center justify-between px-4 sm:px-6 lg:px-8" aria-label="Primary">
                 <BrandMark />
-                <ul className="hidden lg:flex items-center gap-7">
+                <ul className="hidden lg:flex items-center gap-5 xl:gap-7">
                     {NAV_LINKS.map((l) => (
                         <li key={l.to}>
                             <NavLink
                                 to={l.to}
                                 data-testid={`nav-${l.label.toLowerCase()}-link`}
                                 className={({ isActive }) =>
-                                    `font-display text-sm font-semibold uppercase tracking-[0.15em] transition-colors duration-200 ${
+                                    `font-display text-xs xl:text-sm font-semibold uppercase tracking-[0.12em] transition-colors duration-200 ${
                                         isActive ? "text-[#D9B85C]" : "text-stone-300 hover:text-white"
                                     }`
                                 }
@@ -120,7 +120,7 @@ export const Navbar = () => {
                                 <Phone className="h-5 w-5" aria-hidden="true" /> Call Now
                             </a>
                             <p className="flex items-center gap-2 font-mono2 text-xs uppercase tracking-[0.2em] text-stone-500">
-                                <Clock className="h-4 w-4" aria-hidden="true" /> {BUSINESS.hoursDays} · {BUSINESS.hoursTime}
+                                <Clock className="h-4 w-4" aria-hidden="true" /> {BUSINESS.hoursSummary}
                             </p>
                         </div>
                     </motion.div>

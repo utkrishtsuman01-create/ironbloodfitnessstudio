@@ -30,6 +30,14 @@ Owner credibility first; premium dark UI; real imagery only; WhatsApp-first conv
 - Contact page has an embedded Google Map (lazy iframe, no API key) pinned to the studio
 - All 5 second-batch images integrated additively: member-press (training banners), member-dumbbell (services hero), comp-poster (achievements champion banner), trophy-wall (owner showcase/about/proof), gym-floor-3 (facilities/free weights)
 
+## Implemented (2026-09-21, update 2)
+- Memberships page: exact fee structure — Admission ₹2,000; Monthly ₹888; 3M ₹3,888; 6M ₹4,888; 12M ₹8,888; PT Transformation (3M) ₹8,888 incl. Diet Plan/Progress Tracking/1:1 PT; PT Monthly ₹3,000; Diet Plan ₹888
+- New /online-coaching page (in nav, mobile menu, footer, sitemap): Online PT Transformation ₹8,888/mo & ₹20,000/3M; Bodybuilding & Men's Physique contest prep ₹5,888/mo, ₹15,000/6M, ₹35,000/12M; Diet Plan ₹888; CTAs START ONLINE COACHING / WHATSAPP / CALL NOW
+- Home: "Straight pricing" preview (₹888/mo, ₹8,888/3M PT, ₹8,888/mo online, ₹888 diet), Online Coaching chapter section, Follow strip (gym IG/FB + owner IG/FB/YT), structured opening-hours block
+- Hours changed everywhere: Mon–Sat 6:30 AM–12:00 PM & 4:00 PM–10:45 PM, Sunday CLOSED (Home, Contact, Footer, Facilities, mobile menu, JSON-LD schema)
+- Socials: gym IG/FB + owner IG/FB/YouTube in owner showcase, About, Achievements wall-of-proof, Contact, Footer, Home follow strip
+- PUBLIC GALLERY: backend FastAPI + Emergent object storage (EMERGENT_LLM_KEY in backend/.env) + MongoDB `gallery_uploads` (soft-delete). Endpoints: GET/POST /api/gallery, GET /api/gallery/file/{id}, DELETE /api/gallery/{id}. Validation: jpg/png/webp only, 8MB max, UUID filenames, captions ≤140 chars. Frontend Community Wall on /gallery: + POST PICTURE modal (choose→preview→caption→upload→toast), per-image REMOVE with confirmation dialog, lightbox for uploads. Existing 13 curated images untouched and not removable. Security headers middleware added to backend.
+
 ## Backlog
 - P0: Add remaining user photos when uploaded (gallery + sections)
 - P1: Production hosting headers (CSP/HSTS/X-Content-Type-Options) — needs server config at deploy

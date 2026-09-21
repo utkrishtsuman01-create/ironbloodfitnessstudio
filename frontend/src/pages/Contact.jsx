@@ -2,7 +2,8 @@ import { Phone, MessageCircle, MapPin, Clock } from "lucide-react";
 import Seo from "@/components/Seo";
 import { Reveal } from "@/components/Reveal";
 import EnquiryForm from "@/components/EnquiryForm";
-import { BUSINESS, telHref, waHref } from "@/data/content";
+import { BUSINESS, SOCIALS, telHref, waHref } from "@/data/content";
+import SocialIcons from "@/components/SocialIcons";
 
 const INFO = [
     {
@@ -21,7 +22,7 @@ const INFO = [
     {
         icon: Clock,
         label: "Hours",
-        lines: [BUSINESS.hoursDays, BUSINESS.hoursTime],
+        lines: ["Monday – Saturday", "Morning: 6:30 AM – 12:00 PM", "Evening: 4:00 PM – 10:45 PM", "Sunday: Closed"],
         testId: "contact-hours",
     },
 ];
@@ -101,6 +102,10 @@ const Contact = () => (
                             >
                                 <MapPin className="h-4 w-4" aria-hidden="true" /> Get Directions
                             </a>
+                        </div>
+                        <div className="mt-10 border-t border-[#173322]/30 pt-6">
+                            <p className="font-mono2 text-[10px] uppercase tracking-[0.25em] text-stone-500">Follow Ironblood Fitness Studio</p>
+                            <SocialIcons links={SOCIALS.gym} tone="onGold" testId="contact-gym-social" className="mt-3" />
                         </div>
                     </Reveal>
                 </div>

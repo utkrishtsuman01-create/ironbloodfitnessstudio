@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import Seo from "@/components/Seo";
 import CtaBanner from "@/components/CtaBanner";
 import Lightbox from "@/components/Lightbox";
+import GalleryPublic from "@/components/GalleryPublic";
 import { GALLERY } from "@/data/content";
 
 const CATEGORIES = ["All", ...new Set(GALLERY.map((g) => g.category))];
@@ -86,6 +87,8 @@ const Gallery = () => {
                     </motion.div>
                 </div>
             </section>
+
+            <GalleryPublic />
 
             <Lightbox images={images} index={lightbox} onClose={() => setLightbox(null)} onNavigate={setLightbox} />
 

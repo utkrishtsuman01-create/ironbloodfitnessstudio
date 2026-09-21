@@ -6,6 +6,7 @@
   <url><loc>https://bapi-das-elite.preview.emergentagent.com/services</loc><priority>0.8</priority></url>
   <url><loc>https://bapi-das-elite.preview.emergentagent.com/facilities</loc><priority>0.7</priority></url>
   <url><loc>https://bapi-das-elite.preview.emergentagent.com/memberships</loc><priority>0.8</priority></url>
+  <url><loc>https://bapi-das-elite.preview.emergentagent.com/online-coaching</loc><priority>0.8</priority></url>
   <url><loc>https://bapi-das-elite.preview.emergentagent.com/gallery</loc><priority>0.6</priority></url>
   <url><loc>https://bapi-das-elite.preview.emergentagent.com/contact</loc><priority>0.9</priority></url>
 </urlset>

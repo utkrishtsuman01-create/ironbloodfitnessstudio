@@ -5,7 +5,8 @@ import { Reveal, Stagger, staggerItem } from "@/components/Reveal";
 import SectionHeading from "@/components/SectionHeading";
 import CtaBanner from "@/components/CtaBanner";
 import { motion } from "framer-motion";
-import { BUSINESS, IMAGES, SPECIALIZATIONS, EXPERIENCE_COPY } from "@/data/content";
+import { BUSINESS, IMAGES, SPECIALIZATIONS, SOCIALS, EXPERIENCE_COPY } from "@/data/content";
+import SocialIcons from "@/components/SocialIcons";
 
 const CHAPTERS = [
     {
@@ -107,6 +108,10 @@ const About = () => (
                         >
                             Full competition record <ArrowRight className="h-4 w-4" aria-hidden="true" />
                         </Link>
+                    </Reveal>
+                    <Reveal delay={0.16} className="mt-8">
+                        <p className="font-mono2 text-[10px] uppercase tracking-[0.25em] text-stone-500">Follow Bapi Das</p>
+                        <SocialIcons links={SOCIALS.owner} tone="onGreen" testId="about-owner-social" className="mt-3" />
                     </Reveal>
                 </div>
             </div>

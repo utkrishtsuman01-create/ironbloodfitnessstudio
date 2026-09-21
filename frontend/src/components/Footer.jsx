@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { Phone, MessageCircle, MapPin, Clock } from "lucide-react";
-import { BUSINESS, NAV_LINKS, telHref, waHref } from "@/data/content";
+import { BUSINESS, NAV_LINKS, SOCIALS, telHref, waHref } from "@/data/content";
+import SocialIcons from "@/components/SocialIcons";
 
 export const Footer = () => (
     <footer className="border-t border-border bg-[#0C1D14]" data-testid="site-footer">
@@ -15,6 +16,16 @@ export const Footer = () => (
                     />
                     <p className="mt-6 font-display text-lg font-bold uppercase tracking-wider text-white">{BUSINESS.owner}</p>
                     <p className="font-mono2 text-[11px] uppercase tracking-[0.25em] text-[#D9B85C] mt-1">{BUSINESS.ownerTitle}</p>
+                    <div className="mt-6 space-y-4">
+                        <div>
+                            <p className="font-mono2 text-[9px] uppercase tracking-[0.25em] text-stone-500">Follow the studio</p>
+                            <SocialIcons links={SOCIALS.gym} tone="onGreen" testId="footer-gym-social" className="mt-2" />
+                        </div>
+                        <div>
+                            <p className="font-mono2 text-[9px] uppercase tracking-[0.25em] text-stone-500">Follow Bapi Das</p>
+                            <SocialIcons links={SOCIALS.owner} tone="onGreen" testId="footer-owner-social" className="mt-2" />
+                        </div>
+                    </div>
                     <div className="mt-8 flex flex-wrap gap-3">
                         <a
                             href={telHref}
@@ -80,8 +91,9 @@ export const Footer = () => (
                         <h3 className="font-mono2 text-[11px] uppercase tracking-[0.3em] text-stone-500">Hours</h3>
                         <p className="mt-3 flex items-center gap-2 text-sm text-stone-300">
                             <Clock className="h-4 w-4 text-[#D9B85C]" aria-hidden="true" />
-                            {BUSINESS.hoursDays} · {BUSINESS.hoursTime}
+                            Mon – Sat · 6:30 AM – 12:00 PM · 4:00 PM – 10:45 PM
                         </p>
+                        <p className="mt-1.5 pl-6 font-mono2 text-[10px] uppercase tracking-[0.2em] text-stone-500">Sunday — Closed</p>
                     </div>
                 </div>
             </div>

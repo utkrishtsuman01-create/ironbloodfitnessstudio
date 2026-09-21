@@ -8,8 +8,11 @@ export const BUSINESS = {
     phoneDisplay: "+91 82820 72600",
     phoneRaw: "+918282072600",
     whatsappNumber: "918282072600",
-    hoursDays: "MONDAY – SUNDAY",
-    hoursTime: "6:00 AM – 11:00 PM",
+    hoursDays: "MONDAY – SATURDAY",
+    hoursMorning: "6:30 AM – 12:00 PM",
+    hoursEvening: "4:00 PM – 10:45 PM",
+    hoursSunday: "CLOSED",
+    hoursSummary: "Mon – Sat · 6:30 AM – 12:00 PM & 4:00 PM – 10:45 PM · Sun Closed",
     mapsUrl:
         "https://www.google.com/maps/search/?api=1&query=IRONBLOOD+FITNESS+STUDIO,+50+Bansdroni+Park,+Ward+Number+113,+Kolkata,+West+Bengal+700070",
     mapsEmbedUrl:
@@ -30,6 +33,7 @@ export const NAV_LINKS = [
     { to: "/services", label: "Services" },
     { to: "/facilities", label: "Facilities" },
     { to: "/memberships", label: "Memberships" },
+    { to: "/online-coaching", label: "Online Coaching" },
     { to: "/gallery", label: "Gallery" },
     { to: "/contact", label: "Contact" },
 ];
@@ -324,3 +328,61 @@ export const MEDAL_STYLES = {
     bronze: { dot: "#CD7F4E", text: "text-[#CD7F4E]", ring: "border-[#CD7F4E]/40", label: "BRONZE" },
     ranking: { dot: "#8CC084", text: "text-[#8CC084]", ring: "border-[#8CC084]/40", label: "RANKING" },
 };
+
+export const SOCIALS = {
+    gym: {
+        instagram: "https://www.instagram.com/ironbloodfitnessstudio8?stkn=MTd2YnAzZXdmMXpuOQ%3D%3D",
+        facebook: "https://www.facebook.com/share/1pzHH6bEXY/?mibextid=wwXIfr",
+    },
+    owner: {
+        instagram: "https://www.instagram.com/bapidasmrworldofficial8?stkn=dWszNTkzb3dtOTUw",
+        facebook: "https://www.facebook.com/share/1CJH9PmL3w/?mibextid=wwXIfr",
+        youtube: "https://www.youtube.com/@mruniversebapidas?si=2fLbkWW4l_AxVkSQ",
+    },
+};
+
+export const GYM_PRICING = {
+    admission: { label: "Admission (One-Time)", price: "₹2,000" },
+    membership: [
+        { label: "Monthly", price: "₹888" },
+        { label: "3 Months", price: "₹3,888" },
+        { label: "6 Months", price: "₹4,888" },
+        { label: "12 Months", price: "₹8,888" },
+    ],
+    personalTraining: [
+        {
+            label: "PT Transformation Package",
+            duration: "3 Months",
+            price: "₹8,888",
+            includes: ["Diet Plan", "Progress Tracking", "1:1 PT Support"],
+            featured: true,
+        },
+        { label: "PT Monthly", duration: "Monthly", price: "₹3,000", includes: [] },
+    ],
+    diet: { label: "Diet Plan", price: "₹888" },
+};
+
+export const ONLINE_PRICING = [
+    {
+        group: "Online Personal Training Transformation Class",
+        tag: "Most Popular",
+        plans: [
+            { label: "Monthly", price: "₹8,888" },
+            { label: "3 Months", price: "₹20,000" },
+        ],
+    },
+    {
+        group: "Bodybuilding & Men's Physique Competition Preparation Training",
+        tag: "Stage Ready",
+        plans: [
+            { label: "Monthly", price: "₹5,888" },
+            { label: "6 Months", price: "₹15,000" },
+            { label: "12 Months", price: "₹35,000" },
+        ],
+    },
+    {
+        group: "Only Diet Plans",
+        tag: "Nutrition",
+        plans: [{ label: "Diet Plan", price: "₹888" }],
+    },
+];

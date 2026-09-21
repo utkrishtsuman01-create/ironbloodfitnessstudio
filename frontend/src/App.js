@@ -11,6 +11,7 @@ import Achievements from "@/pages/Achievements";
 import Services from "@/pages/Services";
 import Facilities from "@/pages/Facilities";
 import Memberships from "@/pages/Memberships";
+import OnlineCoaching from "@/pages/OnlineCoaching";
 import Gallery from "@/pages/Gallery";
 import Contact from "@/pages/Contact";
 import NotFound from "@/pages/NotFound";
@@ -43,6 +44,7 @@ function App() {
                         <Route path="/services" element={<Services />} />
                         <Route path="/facilities" element={<Facilities />} />
                         <Route path="/memberships" element={<Memberships />} />
+                        <Route path="/online-coaching" element={<OnlineCoaching />} />
                         <Route path="/gallery" element={<Gallery />} />
                         <Route path="/contact" element={<Contact />} />
                         <Route path="*" element={<NotFound />} />
