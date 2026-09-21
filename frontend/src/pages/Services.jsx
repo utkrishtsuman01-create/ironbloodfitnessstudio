@@ -44,15 +44,15 @@ const Services = () => (
                             <motion.article
                                 key={s.title}
                                 variants={staggerItem}
-                                className="group bg-[#E2C266] p-8 transition-colors duration-300 hover:bg-[#C9A43E]"
+                                className="group bg-[#E2C266] p-8 transition-colors duration-300 hover:bg-[#1B5E3A]"
                                 data-testid={`service-card-${i + 1}`}
                             >
                                 <div className="flex items-start justify-between">
                                     <Icon className="h-6 w-6 text-[#C9A227] transition-colors group-hover:text-[#E3B94E]" aria-hidden="true" />
-                                    <span className="font-mono2 text-[9px] uppercase tracking-[0.25em] text-stone-600">{s.tag}</span>
+                                    <span className="font-mono2 text-[9px] uppercase tracking-[0.25em] text-stone-600 transition-colors duration-300 group-hover:text-[#A7C4A0]">{s.tag}</span>
                                 </div>
-                                <h2 className="mt-6 font-display text-2xl font-extrabold uppercase leading-tight text-white">{s.title}</h2>
-                                <p className="mt-4 font-mono2 text-[10px] uppercase tracking-[0.2em] text-stone-600">0{i + 1} / 14</p>
+                                <h2 className="mt-6 font-display text-2xl font-extrabold uppercase leading-tight text-white transition-colors group-hover:text-[#F4EDDD]">{s.title}</h2>
+                                <p className="mt-4 font-mono2 text-[10px] uppercase tracking-[0.2em] text-stone-600 transition-colors duration-300 group-hover:text-[#A7C4A0]">0{i + 1} / 14</p>
                             </motion.article>
                         );
                     })}

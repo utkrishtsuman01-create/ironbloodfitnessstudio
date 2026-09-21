@@ -320,14 +320,14 @@ const Specializations = () => (
                     <motion.div
                         key={s.title}
                         variants={staggerItem}
-                        className="group bg-[#E2C266] p-8 transition-colors duration-300 hover:bg-[#C9A43E]"
+                        className="group bg-[#E2C266] p-8 transition-colors duration-300 hover:bg-[#1B5E3A]"
                         data-testid={`specialization-${i + 1}`}
                     >
-                        <p className="font-mono2 text-xs text-[#D9B85C]">0{i + 1}</p>
-                        <h3 className="mt-4 font-display text-2xl font-extrabold uppercase leading-tight text-white transition-colors group-hover:text-[#D9B85C]">
+                        <p className="font-mono2 text-xs text-[#D9B85C] transition-colors duration-300 group-hover:text-[#A7C4A0]">0{i + 1}</p>
+                        <h3 className="mt-4 font-display text-2xl font-extrabold uppercase leading-tight text-white transition-colors group-hover:text-[#F4EDDD]">
                             {s.title}
                         </h3>
-                        <p className="mt-3 text-sm leading-relaxed text-stone-500">{s.desc}</p>
+                        <p className="mt-3 text-sm leading-relaxed text-stone-500 transition-colors duration-300 group-hover:text-[#D8E2CC]">{s.desc}</p>
                     </motion.div>
                 ))}
             </Stagger>
