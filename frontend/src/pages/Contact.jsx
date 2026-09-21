@@ -33,7 +33,7 @@ const Contact = () => (
             description="Contact Ironblood Fitness Studio — 50, Bansdroni Park, Kolkata 700070. Call +91 82820 72600, WhatsApp or get directions. Open Monday–Sunday, 6 AM – 11 PM."
             path="/contact"
         />
-        <header className="border-b border-border pt-40 pb-16 sm:pb-20">
+        <header className="on-gold border-b border-border pt-40 pb-16 sm:pb-20">
             <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                 <p className="font-mono2 text-[11px] sm:text-xs uppercase tracking-[0.3em] text-[#D9B85C]">Contact</p>
                 <h1 className="mt-4 font-display text-5xl font-black uppercase leading-[0.9] tracking-tight text-white sm:text-7xl">
@@ -43,7 +43,7 @@ const Contact = () => (
             </div>
         </header>
 
-        <section className="py-20 sm:py-28" data-testid="contact-main-section">
+        <section className="on-gold py-20 sm:py-28" data-testid="contact-main-section">
             <div className="mx-auto grid max-w-7xl gap-16 px-4 sm:px-6 lg:grid-cols-2 lg:px-8">
                 <div>
                     <Reveal>
@@ -79,7 +79,7 @@ const Contact = () => (
                             <a
                                 href={telHref}
                                 data-testid="contact-call-button"
-                                className="inline-flex flex-1 items-center justify-center gap-3 bg-[#C9A227] px-6 py-4 font-display text-base font-bold uppercase tracking-wider text-[#1B1409] transition-colors hover:bg-[#E3B94E]"
+                                className="inline-flex flex-1 items-center justify-center gap-3 bg-[#173322] px-6 py-4 font-display text-base font-bold uppercase tracking-wider text-[#F4EDDD] transition-colors hover:bg-[#1B5E3A]"
                             >
                                 <Phone className="h-4 w-4" aria-hidden="true" /> Call Now
                             </a>
@@ -88,7 +88,7 @@ const Contact = () => (
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 data-testid="contact-whatsapp-button"
-                                className="inline-flex flex-1 items-center justify-center gap-3 border border-[#C9A227]/60 px-6 py-4 font-display text-base font-bold uppercase tracking-wider text-white transition-colors hover:border-[#E3B94E]"
+                                className="inline-flex flex-1 items-center justify-center gap-3 border border-[#173322] px-6 py-4 font-display text-base font-bold uppercase tracking-wider text-[#173322] transition-colors hover:bg-[#173322] hover:text-[#F4EDDD]"
                             >
                                 <MessageCircle className="h-4 w-4" aria-hidden="true" /> WhatsApp
                             </a>
@@ -97,7 +97,7 @@ const Contact = () => (
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 data-testid="contact-directions-button"
-                                className="inline-flex flex-1 items-center justify-center gap-3 border border-[#C9A227]/60 px-6 py-4 font-display text-base font-bold uppercase tracking-wider text-white transition-colors hover:border-[#E3B94E]"
+                                className="inline-flex flex-1 items-center justify-center gap-3 border border-[#173322] px-6 py-4 font-display text-base font-bold uppercase tracking-wider text-[#173322] transition-colors hover:bg-[#173322] hover:text-[#F4EDDD]"
                             >
                                 <MapPin className="h-4 w-4" aria-hidden="true" /> Get Directions
                             </a>
@@ -106,7 +106,7 @@ const Contact = () => (
                 </div>
 
                 <Reveal delay={0.1}>
-                    <div className="border border-border bg-[#241B0C] p-7 sm:p-10" data-testid="contact-enquiry-panel">
+                    <div className="border border-border bg-[#123222] p-7 sm:p-10" data-testid="contact-enquiry-panel">
                         <h2 className="font-display text-2xl font-extrabold uppercase text-white sm:text-3xl">Send an enquiry</h2>
                         <p className="mt-3 text-sm leading-relaxed text-stone-500">
                             Fill this in and we will open WhatsApp with your message ready to send to the studio.
@@ -119,7 +119,7 @@ const Contact = () => (
             </div>
         </section>
 
-        <section className="border-t border-border pb-24 sm:pb-32 pt-16 sm:pt-20" data-testid="contact-map-section">
+        <section className="on-gold border-t border-border pb-24 sm:pb-32 pt-16 sm:pt-20" data-testid="contact-map-section">
             <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                 <Reveal>
                     <div className="flex flex-col items-start justify-between gap-6 sm:flex-row sm:items-end">

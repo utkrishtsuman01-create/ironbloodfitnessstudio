@@ -4,8 +4,8 @@
 
 @layer base {
     :root {
-        --background: 39 45% 11%;
-        --foreground: 42 32% 92%;
+        --background: 44 64% 57%;
+        --foreground: 131 18% 14%;
         --card: 158 36% 12%;
         --card-foreground: 42 32% 92%;
         --popover: 158 36% 12%;
@@ -20,7 +20,7 @@
         --accent-foreground: 36 40% 7%;
         --destructive: 0 70% 50%;
         --destructive-foreground: 42 32% 92%;
-        --border: 38 42% 20%;
+        --border: 43 48% 30%;
         --input: 38 30% 24%;
         --ring: 45 66% 50%;
         --radius: 0.125rem;
@@ -119,4 +119,80 @@
     .animate-pulse-dot {
         animation: none;
     }
+}
+
+/* Sections sitting on the bright gold base: force deep-green/charcoal reading colors,
+   then restore light text inside deep-green cards/panels nested within them. */
+.on-gold {
+    --border: 43 48% 30%;
+}
+.on-gold .text-white {
+    color: #173322;
+}
+.on-gold .text-stone-200 {
+    color: #2c3524;
+}
+.on-gold .text-stone-300 {
+    color: #37422f;
+}
+.on-gold .text-stone-400 {
+    color: #46523a;
+}
+.on-gold .text-stone-500 {
+    color: #535f42;
+}
+.on-gold .text-stone-600 {
+    color: #5d6848;
+}
+.on-gold .text-\[\#D9B85C\] {
+    color: #1b5e3a;
+}
+.on-gold .text-stroke {
+    -webkit-text-stroke-color: rgba(23, 51, 34, 0.4);
+}
+.on-gold .text-stroke-gold {
+    -webkit-text-stroke-color: rgba(122, 92, 20, 0.85);
+}
+.on-gold .bg-\[\#142B21\] .text-white,
+.on-gold .bg-\[\#123222\] .text-white,
+.on-gold .bg-\[\#0F2A1E\] .text-white,
+.on-gold .bg-\[\#0C1D14\] .text-white {
+    color: #ffffff;
+}
+.on-gold .bg-\[\#142B21\] .text-stone-300,
+.on-gold .bg-\[\#123222\] .text-stone-300 {
+    color: #b9c3aa;
+}
+.on-gold .bg-\[\#142B21\] .text-stone-400,
+.on-gold .bg-\[\#123222\] .text-stone-400 {
+    color: #a9b59b;
+}
+.on-gold .bg-\[\#142B21\] .text-stone-500,
+.on-gold .bg-\[\#123222\] .text-stone-500,
+.on-gold .bg-\[\#142B21\] .text-stone-600,
+.on-gold .bg-\[\#123222\] .text-stone-600 {
+    color: #93a086;
+}
+.on-gold .bg-\[\#142B21\] .text-\[\#D9B85C\],
+.on-gold .bg-\[\#123222\] .text-\[\#D9B85C\] {
+    color: #e3b94e;
+}
+.on-gold .bg-\[\#142B21\] .text-stroke,
+.on-gold .bg-\[\#123222\] .text-stroke {
+    -webkit-text-stroke-color: rgba(241, 234, 216, 0.25);
+}
+
+/* Captions sitting on dark photo overlays inside gold sections stay light. */
+.on-gold .on-dark .text-white {
+    color: #ffffff;
+}
+.on-gold .on-dark .text-stone-300,
+.on-gold .on-dark .text-stone-400 {
+    color: #b9c3aa;
+}
+.on-gold .on-dark .text-\[\#D9B85C\] {
+    color: #e3b94e;
+}
+.on-gold .on-dark .text-\[\#D4AF37\] {
+    color: #d4af37;
 }

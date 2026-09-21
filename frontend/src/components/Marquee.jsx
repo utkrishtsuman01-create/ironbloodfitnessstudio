@@ -13,7 +13,7 @@ const ITEMS = [
 
 export const Marquee = ({ dark = false }) => (
     <div
-        className={`marquee-paused overflow-hidden border-y border-border py-4 sm:py-5 ${dark ? "bg-[#2A2010]" : "bg-[#241B0C]"}`}
+        className={`marquee-paused overflow-hidden border-y border-border py-4 sm:py-5 ${dark ? "bg-[#D9B44A]" : "bg-[#123222]"}`}
         aria-label={`Career highlights of ${BUSINESS.owner}`}
     >
         <div className="animate-marquee flex w-max whitespace-nowrap">
@@ -21,7 +21,7 @@ export const Marquee = ({ dark = false }) => (
                 <div key={copy} className="flex shrink-0 items-center" aria-hidden={copy === 1}>
                     {ITEMS.map((item, i) => (
                         <span key={i} className="flex items-center">
-                            <span className="font-display text-lg sm:text-2xl font-bold uppercase tracking-wide text-stone-500 px-6">
+                            <span className="font-display text-lg sm:text-2xl font-bold uppercase tracking-wide text-[#E8D9A8] px-6">
                                 {item}
                             </span>
                             <span aria-hidden="true" className="h-1.5 w-1.5 rotate-45 bg-[#C9A227]" />

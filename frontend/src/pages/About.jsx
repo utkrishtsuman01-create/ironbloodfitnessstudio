@@ -36,7 +36,7 @@ const About = () => (
         <header className="relative overflow-hidden border-b border-border pt-40 pb-20 sm:pb-28">
             <div className="absolute inset-0" aria-hidden="true">
                 <img src={IMAGES.trophyWall.src} alt="" className="h-full w-full object-cover opacity-25" />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#2A2010] via-[#2A2010]/70 to-[#2A2010]/50" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#0F2A1E] via-[#0F2A1E]/70 to-[#0F2A1E]/50" />
             </div>
             <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                 <p className="font-mono2 text-[11px] sm:text-xs uppercase tracking-[0.3em] text-[#D9B85C]">About Ironblood</p>
@@ -47,12 +47,12 @@ const About = () => (
             </div>
         </header>
 
-        <section className="py-24 sm:py-32" data-testid="about-manifesto-section">
+        <section className="on-gold py-24 sm:py-32" data-testid="about-manifesto-section">
             <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                 <SectionHeading eyebrow="The Studio Manifesto" title="What we stand for" />
                 <Stagger className="mt-14 grid gap-px bg-border lg:grid-cols-3">
                     {CHAPTERS.map((c) => (
-                        <motion.article key={c.n} variants={staggerItem} className="bg-[#2A2010] p-8 sm:p-10" data-testid={`about-chapter-${c.n}`}>
+                        <motion.article key={c.n} variants={staggerItem} className="bg-[#E2C266] p-8 sm:p-10" data-testid={`about-chapter-${c.n}`}>
                             <p className="font-display text-6xl font-black text-stroke-gold">{c.n}</p>
                             <h2 className="mt-5 font-display text-2xl font-extrabold uppercase leading-tight text-white">{c.t}</h2>
                             <p className="mt-4 text-sm leading-relaxed text-stone-400">{c.b}</p>
@@ -62,13 +62,13 @@ const About = () => (
             </div>
         </section>
 
-        <section className="border-y border-border bg-[#241B0C] py-24 sm:py-32" data-testid="about-coach-section">
+        <section className="border-y border-border bg-[#123222] py-24 sm:py-32" data-testid="about-coach-section">
             <div className="mx-auto grid max-w-7xl items-center gap-14 px-4 sm:px-6 lg:grid-cols-2 lg:px-8">
                 <Reveal>
                     <div className="relative">
                         <div aria-hidden="true" className="absolute -inset-3 border border-[#C9A227]/30" />
                         <img src={IMAGES.bapiPose.src} alt={IMAGES.bapiPose.alt} loading="lazy" className="relative w-full border border-border object-cover" />
-                        <div className="absolute -bottom-6 -right-3 hidden w-40 border border-[#C9A227]/40 bg-[#2A2010] p-1.5 sm:block">
+                        <div className="absolute -bottom-6 -right-3 hidden w-40 border border-[#C9A227]/40 bg-[#D9B44A] p-1.5 sm:block">
                             <img src={IMAGES.bapiStageBw.src} alt={IMAGES.bapiStageBw.alt} loading="lazy" className="w-full object-cover" />
                         </div>
                     </div>
@@ -112,7 +112,7 @@ const About = () => (
             </div>
         </section>
 
-        <section className="py-24 sm:py-32" data-testid="about-specializations-section">
+        <section className="on-gold py-24 sm:py-32" data-testid="about-specializations-section">
             <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                 <SectionHeading eyebrow="Coaching Scope" title="Specializations" />
                 <Stagger className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">

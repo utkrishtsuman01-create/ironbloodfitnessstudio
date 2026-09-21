@@ -20,7 +20,7 @@ const Gallery = () => {
                 path="/gallery"
                 image="/images/gym-floor-2.jpg"
             />
-            <header className="border-b border-border pt-40 pb-16 sm:pb-20">
+            <header className="on-gold border-b border-border pt-40 pb-16 sm:pb-20">
                 <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                     <p className="font-mono2 text-[11px] sm:text-xs uppercase tracking-[0.3em] text-[#D9B85C]">Gallery</p>
                     <h1 className="mt-4 font-display text-5xl font-black uppercase leading-[0.9] tracking-tight text-white sm:text-7xl">
@@ -33,7 +33,7 @@ const Gallery = () => {
                 </div>
             </header>
 
-            <section className="py-16 sm:py-24" data-testid="gallery-grid-section">
+            <section className="on-gold py-16 sm:py-24" data-testid="gallery-grid-section">
                 <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                     <div className="flex flex-wrap gap-2" role="group" aria-label="Filter gallery by category">
                         {CATEGORIES.map((c) => (
@@ -45,8 +45,8 @@ const Gallery = () => {
                                 aria-pressed={cat === c}
                                 className={`border px-5 py-2.5 font-display text-sm font-bold uppercase tracking-wider transition-colors duration-200 ${
                                     cat === c
-                                        ? "border-[#C9A227] bg-[#C9A227] text-[#1B1409]"
-                                        : "border-[#C9A227]/50 text-stone-400 hover:border-stone-400 hover:text-white"
+                                        ? "border-[#173322] bg-[#173322] text-[#F4EDDD]"
+                                        : "border-[#173322]/50 text-[#37422F] hover:border-[#173322] hover:text-[#173322]"
                                 }`}
                             >
                                 {c}
@@ -68,7 +68,7 @@ const Gallery = () => {
                                     onClick={() => setLightbox(i)}
                                     data-testid={`gallery-item-${i + 1}`}
                                     aria-label={`Open image: ${img.alt}`}
-                                    className="group relative block overflow-hidden border border-border text-left"
+                                    className="on-dark group relative block overflow-hidden border border-border text-left"
                                 >
                                     <img
                                         src={img.src}

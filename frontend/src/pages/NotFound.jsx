@@ -4,7 +4,7 @@ import Seo from "@/components/Seo";
 const NotFound = () => (
     <>
         <Seo title="Page Not Found | IRONBLOOD FITNESS STUDIO ♾️" description="The page you are looking for does not exist." path="/404" />
-        <section className="flex min-h-[80vh] flex-col items-center justify-center px-4 pt-20 text-center" data-testid="not-found-section">
+        <section className="on-gold flex min-h-[80vh] flex-col items-center justify-center px-4 pt-20 text-center" data-testid="not-found-section">
             <p className="font-display text-[10rem] font-black leading-none text-stroke-gold sm:text-[16rem]" aria-hidden="true">
                 404
             </p>
@@ -13,7 +13,7 @@ const NotFound = () => (
             <Link
                 to="/"
                 data-testid="not-found-home-link"
-                className="mt-10 bg-[#C9A227] px-8 py-4 font-display text-base font-bold uppercase tracking-wider text-[#1B1409] transition-colors hover:bg-[#E3B94E]"
+                className="mt-10 bg-[#173322] px-8 py-4 font-display text-base font-bold uppercase tracking-wider text-[#F4EDDD] transition-colors hover:bg-[#1B5E3A]"
             >
                 Back to Home
             </Link>

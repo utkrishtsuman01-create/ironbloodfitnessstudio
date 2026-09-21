@@ -28,7 +28,7 @@ const Achievements = () => {
                 path="/achievements"
                 image="/images/bapi-collage.jpg"
             />
-            <header className="border-b border-border pt-40 pb-16 sm:pb-20">
+            <header className="on-gold border-b border-border pt-40 pb-16 sm:pb-20">
                 <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                     <p className="font-mono2 text-[11px] sm:text-xs uppercase tracking-[0.3em] text-[#D9B85C]">The Record</p>
                     <h1 className="mt-4 font-display text-5xl font-black uppercase leading-[0.9] tracking-tight text-white sm:text-7xl">
@@ -56,7 +56,7 @@ const Achievements = () => {
                 </div>
             </section>
 
-            <section className="border-b border-border bg-[#241B0C] py-16 sm:py-20" data-testid="on-stage-section">
+            <section className="border-b border-border bg-[#123222] py-16 sm:py-20" data-testid="on-stage-section">
                 <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                     <div className="flex items-end justify-between gap-6">
                         <h2 className="font-display text-3xl font-extrabold uppercase tracking-tight text-white sm:text-4xl">On stage</h2>
@@ -80,7 +80,7 @@ const Achievements = () => {
                 </div>
             </section>
 
-            <section className="py-20 sm:py-28" data-testid="achievements-list-section">
+            <section className="on-gold py-20 sm:py-28" data-testid="achievements-list-section">
                 <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                     <div className="flex flex-wrap gap-2" role="group" aria-label="Filter achievements by medal">
                         {FILTERS.map((f) => (
@@ -92,8 +92,8 @@ const Achievements = () => {
                                 aria-pressed={filter === f.key}
                                 className={`border px-5 py-2.5 font-display text-sm font-bold uppercase tracking-wider transition-colors duration-200 ${
                                     filter === f.key
-                                        ? "border-[#C9A227] bg-[#C9A227] text-[#1B1409]"
-                                        : "border-[#C9A227]/50 text-stone-400 hover:border-stone-400 hover:text-white"
+                                        ? "border-[#173322] bg-[#173322] text-[#F4EDDD]"
+                                        : "border-[#173322]/50 text-[#37422F] hover:border-[#173322] hover:text-[#173322]"
                                 }`}
                             >
                                 {f.label}
@@ -144,7 +144,7 @@ const Achievements = () => {
                     </motion.div>
 
                     <Reveal className="mt-16">
-                        <div className="flex flex-col items-start gap-6 border border-border bg-[#241B0C] p-8 sm:flex-row sm:items-center">
+                        <div className="flex flex-col items-start gap-6 border border-border bg-[#123222] p-8 sm:flex-row sm:items-center">
                             <img
                                 src={IMAGES.trophyWall.src}
                                 alt={IMAGES.trophyWall.alt}

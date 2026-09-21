@@ -38,7 +38,7 @@ const Memberships = () => (
         <header className="relative overflow-hidden border-b border-border pt-40 pb-20 sm:pb-28">
             <div className="absolute inset-0" aria-hidden="true">
                 <img src={IMAGES.gymCommunity.src} alt="" className="h-full w-full object-cover object-top opacity-25" />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#2A2010] via-[#2A2010]/75 to-[#2A2010]/50" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#0F2A1E] via-[#0F2A1E]/75 to-[#0F2A1E]/50" />
             </div>
             <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                 <p className="font-mono2 text-[11px] sm:text-xs uppercase tracking-[0.3em] text-[#D9B85C]">Memberships</p>
@@ -52,7 +52,7 @@ const Memberships = () => (
             </div>
         </header>
 
-        <section className="py-24 sm:py-32" data-testid="membership-plans-section">
+        <section className="on-gold py-24 sm:py-32" data-testid="membership-plans-section">
             <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                 <Stagger className="grid gap-5 lg:grid-cols-3" gap={0.08}>
                     {PLANS.map((p) => (
@@ -60,7 +60,7 @@ const Memberships = () => (
                             key={p.n}
                             variants={staggerItem}
                             className={`flex flex-col border p-8 sm:p-10 ${
-                                p.featured ? "glow-gold border-[#C9A227] bg-[#142B21]" : "border-border bg-[#241B0C]"
+                                p.featured ? "glow-gold border-[#C9A227] bg-[#142B21]" : "border-border bg-[#123222]"
                             }`}
                             data-testid={`membership-plan-${p.n}`}
                         >
@@ -101,7 +101,7 @@ const Memberships = () => (
                     ))}
                 </Stagger>
 
-                <Reveal className="mt-16 border border-border bg-[#241B0C] p-8 text-center sm:p-12">
+                <Reveal className="mt-16 border border-border bg-[#123222] p-8 text-center sm:p-12">
                     <h2 className="font-display text-3xl font-extrabold uppercase text-white sm:text-4xl">Contact us for current membership plans and pricing.</h2>
                     <div className="mt-8 flex flex-col justify-center gap-4 sm:flex-row">
                         <a

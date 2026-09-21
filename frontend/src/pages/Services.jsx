@@ -19,7 +19,7 @@ const Services = () => (
         <header className="relative overflow-hidden border-b border-border pt-40 pb-20 sm:pb-28">
             <div className="absolute inset-0" aria-hidden="true">
                 <img src={IMAGES.memberDumbbell.src} alt="" className="h-full w-full object-cover object-center opacity-25" />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#2A2010] via-[#2A2010]/75 to-[#2A2010]/50" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#0F2A1E] via-[#0F2A1E]/75 to-[#0F2A1E]/50" />
             </div>
             <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                 <p className="font-mono2 text-[11px] sm:text-xs uppercase tracking-[0.3em] text-[#D9B85C]">Services</p>
@@ -34,7 +34,7 @@ const Services = () => (
             </div>
         </header>
 
-        <section className="py-24 sm:py-32" data-testid="services-grid-section">
+        <section className="on-gold py-24 sm:py-32" data-testid="services-grid-section">
             <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                 <SectionHeading eyebrow="Confirmed Training Services" title="The full list" />
                 <Stagger className="mt-14 grid gap-px bg-border sm:grid-cols-2 lg:grid-cols-3" gap={0.04}>
@@ -44,7 +44,7 @@ const Services = () => (
                             <motion.article
                                 key={s.title}
                                 variants={staggerItem}
-                                className="group bg-[#2A2010] p-8 transition-colors duration-300 hover:bg-[#142B21]"
+                                className="group bg-[#E2C266] p-8 transition-colors duration-300 hover:bg-[#C9A43E]"
                                 data-testid={`service-card-${i + 1}`}
                             >
                                 <div className="flex items-start justify-between">
@@ -63,7 +63,7 @@ const Services = () => (
         <section className="relative overflow-hidden border-y border-border" data-testid="services-training-banner">
             <div className="absolute inset-0" aria-hidden="true">
                 <img src={IMAGES.memberPress.src} alt="" loading="lazy" className="h-full w-full object-cover object-center" />
-                <div className="absolute inset-0 bg-[#2A2010]/80" />
+                <div className="absolute inset-0 bg-[#0F2A1E]/80" />
             </div>
             <div className="relative mx-auto max-w-7xl px-4 py-24 sm:px-6 lg:px-8">
                 <Reveal>

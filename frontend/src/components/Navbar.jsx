@@ -33,7 +33,7 @@ export const Navbar = () => {
         <>
         <header
             className={`fixed inset-x-0 top-0 z-50 border-b transition-colors duration-300 ${
-                scrolled || open ? "border-border bg-[#0F2A1E]/95 backdrop-blur-md" : "border-transparent bg-[#241B0C]/70 backdrop-blur-md"
+                scrolled || open ? "border-border bg-[#0F2A1E]/95 backdrop-blur-md" : "border-transparent bg-[#123222]/70 backdrop-blur-md"
             }`}
         >
             <nav className="max-w-7xl mx-auto flex h-20 items-center justify-between px-4 sm:px-6 lg:px-8" aria-label="Primary">
