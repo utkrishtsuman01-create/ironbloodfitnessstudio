@@ -8,7 +8,7 @@ export const CtaBanner = ({
     body = "Walk into Ironblood Fitness Studio in Bansdroni Park, Kolkata — or send an enquiry and we will take it from there.",
     testId = "cta-banner",
 }) => (
-    <section className="relative overflow-hidden border-y border-border bg-[#0E0E10]">
+    <section className="relative overflow-hidden border-y border-border bg-[#132B20]">
         <div
             aria-hidden="true"
             className="absolute inset-0 opacity-[0.35]"
@@ -16,18 +16,18 @@ export const CtaBanner = ({
         />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 sm:py-28">
             <Reveal>
-                <p className="font-mono2 text-[11px] sm:text-xs uppercase tracking-[0.3em] text-[#FF4A52]">{eyebrow}</p>
+                <p className="font-mono2 text-[11px] sm:text-xs uppercase tracking-[0.3em] text-[#D9B85C]">{eyebrow}</p>
                 <h2 className="font-display text-4xl sm:text-6xl lg:text-7xl font-black uppercase leading-[0.92] tracking-tight text-white mt-4 max-w-4xl">
                     {title}
                 </h2>
-                <p className="mt-6 max-w-xl text-base sm:text-lg text-zinc-400 leading-relaxed">{body}</p>
+                <p className="mt-6 max-w-xl text-base sm:text-lg text-stone-400 leading-relaxed">{body}</p>
                 <div className="mt-10 flex flex-col sm:flex-row gap-4">
                     <a
                         href={waHref}
                         target="_blank"
                         rel="noopener noreferrer"
                         data-testid={`${testId}-whatsapp-button`}
-                        className="inline-flex items-center justify-center gap-3 bg-[#D61C24] px-8 py-4 font-display text-lg font-bold uppercase tracking-wider text-white transition-colors duration-300 hover:bg-[#FF2A32]"
+                        className="inline-flex items-center justify-center gap-3 bg-[#C9A227] px-8 py-4 font-display text-lg font-bold uppercase tracking-wider text-[#1B1409] transition-colors duration-300 hover:bg-[#E3B94E]"
                     >
                         <MessageCircle className="h-5 w-5" aria-hidden="true" />
                         Enquire on WhatsApp
@@ -35,7 +35,7 @@ export const CtaBanner = ({
                     <a
                         href={telHref}
                         data-testid={`${testId}-call-button`}
-                        className="inline-flex items-center justify-center gap-3 border border-zinc-600 px-8 py-4 font-display text-lg font-bold uppercase tracking-wider text-white transition-colors duration-300 hover:border-white hover:bg-white/5"
+                        className="inline-flex items-center justify-center gap-3 border border-stone-600 px-8 py-4 font-display text-lg font-bold uppercase tracking-wider text-white transition-colors duration-300 hover:border-white hover:bg-white/5"
                     >
                         <Phone className="h-5 w-5" aria-hidden="true" />
                         Call Now

@@ -30,12 +30,12 @@ const Achievements = () => {
             />
             <header className="border-b border-border pt-40 pb-16 sm:pb-20">
                 <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-                    <p className="font-mono2 text-[11px] sm:text-xs uppercase tracking-[0.3em] text-[#FF4A52]">The Record</p>
+                    <p className="font-mono2 text-[11px] sm:text-xs uppercase tracking-[0.3em] text-[#D9B85C]">The Record</p>
                     <h1 className="mt-4 font-display text-5xl font-black uppercase leading-[0.9] tracking-tight text-white sm:text-7xl">
                         14 achievements.
                         <span className="block text-stroke">One standard.</span>
                     </h1>
-                    <p className="mt-6 max-w-2xl text-base leading-relaxed text-zinc-400 sm:text-lg">
+                    <p className="mt-6 max-w-2xl text-base leading-relaxed text-stone-400 sm:text-lg">
                         Every title, medal and ranking from the competitive career of Bapi Das — presented exactly as earned.
                     </p>
                 </div>
@@ -51,16 +51,16 @@ const Achievements = () => {
                     />
                 </Reveal>
                 <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-4 sm:px-6 lg:px-8">
-                    <p className="font-mono2 text-[10px] uppercase tracking-[0.25em] text-zinc-600">On stage — trophy presentation</p>
-                    <p className="font-mono2 text-[10px] uppercase tracking-[0.25em] text-[#FF4A52]">Ironblood Muscle & Fitness Studio</p>
+                    <p className="font-mono2 text-[10px] uppercase tracking-[0.25em] text-stone-600">On stage — trophy presentation</p>
+                    <p className="font-mono2 text-[10px] uppercase tracking-[0.25em] text-[#D9B85C]">Ironblood Muscle & Fitness Studio</p>
                 </div>
             </section>
 
-            <section className="border-b border-border bg-[#0E0E10] py-16 sm:py-20" data-testid="on-stage-section">
+            <section className="border-b border-border bg-[#132B20] py-16 sm:py-20" data-testid="on-stage-section">
                 <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                     <div className="flex items-end justify-between gap-6">
                         <h2 className="font-display text-3xl font-extrabold uppercase tracking-tight text-white sm:text-4xl">On stage</h2>
-                        <p className="hidden font-mono2 text-[10px] uppercase tracking-[0.25em] text-zinc-600 sm:block">Contest condition · Championship lights</p>
+                        <p className="hidden font-mono2 text-[10px] uppercase tracking-[0.25em] text-stone-600 sm:block">Contest condition · Championship lights</p>
                     </div>
                     <div className="mt-10 grid gap-5 sm:grid-cols-2">
                         {[IMAGES.bapiStageBw, IMAGES.bapiStageSide].map((img) => (
@@ -92,8 +92,8 @@ const Achievements = () => {
                                 aria-pressed={filter === f.key}
                                 className={`border px-5 py-2.5 font-display text-sm font-bold uppercase tracking-wider transition-colors duration-200 ${
                                     filter === f.key
-                                        ? "border-[#D61C24] bg-[#D61C24] text-white"
-                                        : "border-zinc-700 text-zinc-400 hover:border-zinc-400 hover:text-white"
+                                        ? "border-[#C9A227] bg-[#C9A227] text-[#1B1409]"
+                                        : "border-stone-700 text-stone-400 hover:border-stone-400 hover:text-white"
                                 }`}
                             >
                                 {f.label}
@@ -114,13 +114,13 @@ const Achievements = () => {
                                         animate={{ opacity: 1, y: 0 }}
                                         exit={{ opacity: 0, scale: 0.97 }}
                                         transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
-                                        className={`group flex flex-col border bg-[#121214] p-7 transition-all duration-300 hover:-translate-y-1 ${
-                                            topTier === "gold" ? "border-[#D4AF37]/30 hover:border-[#D4AF37]/60" : "border-border hover:border-zinc-500"
+                                        className={`group flex flex-col border bg-[#211B10] p-7 transition-all duration-300 hover:-translate-y-1 ${
+                                            topTier === "gold" ? "border-[#D4AF37]/30 hover:border-[#D4AF37]/60" : "border-border hover:border-stone-500"
                                         }`}
                                         data-testid={`achievement-card-${a.id}`}
                                     >
                                         <div className="flex items-start justify-between gap-4">
-                                            <p className="font-mono2 text-[10px] uppercase tracking-[0.25em] text-zinc-600">
+                                            <p className="font-mono2 text-[10px] uppercase tracking-[0.25em] text-stone-600">
                                                 {a.year || "Career"} {a.org ? `· ${a.org}` : ""}
                                             </p>
                                             <span className={`border px-2 py-0.5 font-mono2 text-[9px] uppercase tracking-[0.2em] ${style.ring} ${style.text}`}>
@@ -136,7 +136,7 @@ const Achievements = () => {
                                                 </li>
                                             ))}
                                         </ul>
-                                        <p className="mt-6 border-t border-zinc-900 pt-4 text-xs uppercase tracking-[0.15em] text-zinc-600">{a.location}</p>
+                                        <p className="mt-6 border-t border-stone-900 pt-4 text-xs uppercase tracking-[0.15em] text-stone-600">{a.location}</p>
                                     </motion.article>
                                 );
                             })}
@@ -144,7 +144,7 @@ const Achievements = () => {
                     </motion.div>
 
                     <Reveal className="mt-16">
-                        <div className="flex flex-col items-start gap-6 border border-border bg-[#0E0E10] p-8 sm:flex-row sm:items-center">
+                        <div className="flex flex-col items-start gap-6 border border-border bg-[#132B20] p-8 sm:flex-row sm:items-center">
                             <img
                                 src={IMAGES.trophyWall.src}
                                 alt={IMAGES.trophyWall.alt}
@@ -153,7 +153,7 @@ const Achievements = () => {
                             />
                             <div>
                                 <h2 className="font-display text-2xl font-extrabold uppercase text-white sm:text-3xl">The wall of proof</h2>
-                                <p className="mt-3 max-w-xl text-sm leading-relaxed text-zinc-400">
+                                <p className="mt-3 max-w-xl text-sm leading-relaxed text-stone-400">
                                     Trophies, medals and certificates from these championships are displayed inside the studio — visit and see
                                     the record in person.
                                 </p>

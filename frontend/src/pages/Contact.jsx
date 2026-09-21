@@ -35,7 +35,7 @@ const Contact = () => (
         />
         <header className="border-b border-border pt-40 pb-16 sm:pb-20">
             <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-                <p className="font-mono2 text-[11px] sm:text-xs uppercase tracking-[0.3em] text-[#FF4A52]">Contact</p>
+                <p className="font-mono2 text-[11px] sm:text-xs uppercase tracking-[0.3em] text-[#D9B85C]">Contact</p>
                 <h1 className="mt-4 font-display text-5xl font-black uppercase leading-[0.9] tracking-tight text-white sm:text-7xl">
                     Start the
                     <span className="block text-stroke">conversation.</span>
@@ -53,11 +53,11 @@ const Contact = () => (
                                 const Icon = item.icon;
                                 const inner = (
                                     <>
-                                        <Icon className="mt-1 h-5 w-5 shrink-0 text-[#FF4A52]" aria-hidden="true" />
+                                        <Icon className="mt-1 h-5 w-5 shrink-0 text-[#D9B85C]" aria-hidden="true" />
                                         <div>
-                                            <p className="font-mono2 text-[10px] uppercase tracking-[0.25em] text-zinc-500">{item.label}</p>
+                                            <p className="font-mono2 text-[10px] uppercase tracking-[0.25em] text-stone-500">{item.label}</p>
                                             {item.lines.map((l) => (
-                                                <p key={l} className="mt-1 text-base text-zinc-200">
+                                                <p key={l} className="mt-1 text-base text-stone-200">
                                                     {l}
                                                 </p>
                                             ))}
@@ -79,7 +79,7 @@ const Contact = () => (
                             <a
                                 href={telHref}
                                 data-testid="contact-call-button"
-                                className="inline-flex flex-1 items-center justify-center gap-3 bg-[#D61C24] px-6 py-4 font-display text-base font-bold uppercase tracking-wider text-white transition-colors hover:bg-[#FF2A32]"
+                                className="inline-flex flex-1 items-center justify-center gap-3 bg-[#C9A227] px-6 py-4 font-display text-base font-bold uppercase tracking-wider text-[#1B1409] transition-colors hover:bg-[#E3B94E]"
                             >
                                 <Phone className="h-4 w-4" aria-hidden="true" /> Call Now
                             </a>
@@ -88,7 +88,7 @@ const Contact = () => (
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 data-testid="contact-whatsapp-button"
-                                className="inline-flex flex-1 items-center justify-center gap-3 border border-zinc-600 px-6 py-4 font-display text-base font-bold uppercase tracking-wider text-white transition-colors hover:border-white"
+                                className="inline-flex flex-1 items-center justify-center gap-3 border border-stone-600 px-6 py-4 font-display text-base font-bold uppercase tracking-wider text-white transition-colors hover:border-white"
                             >
                                 <MessageCircle className="h-4 w-4" aria-hidden="true" /> WhatsApp
                             </a>
@@ -97,7 +97,7 @@ const Contact = () => (
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 data-testid="contact-directions-button"
-                                className="inline-flex flex-1 items-center justify-center gap-3 border border-zinc-600 px-6 py-4 font-display text-base font-bold uppercase tracking-wider text-white transition-colors hover:border-white"
+                                className="inline-flex flex-1 items-center justify-center gap-3 border border-stone-600 px-6 py-4 font-display text-base font-bold uppercase tracking-wider text-white transition-colors hover:border-white"
                             >
                                 <MapPin className="h-4 w-4" aria-hidden="true" /> Get Directions
                             </a>
@@ -106,9 +106,9 @@ const Contact = () => (
                 </div>
 
                 <Reveal delay={0.1}>
-                    <div className="border border-border bg-[#0E0E10] p-7 sm:p-10" data-testid="contact-enquiry-panel">
+                    <div className="border border-border bg-[#132B20] p-7 sm:p-10" data-testid="contact-enquiry-panel">
                         <h2 className="font-display text-2xl font-extrabold uppercase text-white sm:text-3xl">Send an enquiry</h2>
-                        <p className="mt-3 text-sm leading-relaxed text-zinc-500">
+                        <p className="mt-3 text-sm leading-relaxed text-stone-500">
                             Fill this in and we will open WhatsApp with your message ready to send to the studio.
                         </p>
                         <div className="mt-8">
@@ -124,7 +124,7 @@ const Contact = () => (
                 <Reveal>
                     <div className="flex flex-col items-start justify-between gap-6 sm:flex-row sm:items-end">
                         <div>
-                            <p className="font-mono2 text-[11px] sm:text-xs uppercase tracking-[0.3em] text-[#FF4A52]">Find the studio</p>
+                            <p className="font-mono2 text-[11px] sm:text-xs uppercase tracking-[0.3em] text-[#D9B85C]">Find the studio</p>
                             <h2 className="mt-3 font-display text-3xl font-extrabold uppercase tracking-tight text-white sm:text-4xl">
                                 Bansdroni Park, Kolkata
                             </h2>
@@ -134,7 +134,7 @@ const Contact = () => (
                             target="_blank"
                             rel="noopener noreferrer"
                             data-testid="contact-map-directions-button"
-                            className="inline-flex items-center gap-2 border border-zinc-600 px-6 py-3 font-display text-sm font-bold uppercase tracking-wider text-white transition-colors hover:border-[#D61C24] hover:bg-[#D61C24]"
+                            className="inline-flex items-center gap-2 border border-stone-600 px-6 py-3 font-display text-sm font-bold uppercase tracking-wider text-[#1B1409] transition-colors hover:border-[#C9A227] hover:bg-[#C9A227]"
                         >
                             <MapPin className="h-4 w-4" aria-hidden="true" /> Open in Google Maps
                         </a>

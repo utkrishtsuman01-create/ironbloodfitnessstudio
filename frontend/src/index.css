@@ -4,25 +4,25 @@
 
 @layer base {
     :root {
-        --background: 240 6% 4%;
-        --foreground: 0 0% 100%;
-        --card: 240 5% 7%;
-        --card-foreground: 0 0% 100%;
-        --popover: 240 5% 7%;
-        --popover-foreground: 0 0% 100%;
-        --primary: 358 78% 47%;
-        --primary-foreground: 0 0% 100%;
-        --secondary: 240 4% 10%;
-        --secondary-foreground: 0 0% 98%;
-        --muted: 240 4% 12%;
-        --muted-foreground: 240 5% 65%;
-        --accent: 358 78% 47%;
-        --accent-foreground: 0 0% 100%;
-        --destructive: 0 84% 60%;
-        --destructive-foreground: 0 0% 98%;
-        --border: 240 4% 16%;
-        --input: 240 4% 20%;
-        --ring: 358 78% 47%;
+        --background: 36 38% 6%;
+        --foreground: 42 32% 92%;
+        --card: 37 33% 9%;
+        --card-foreground: 42 32% 92%;
+        --popover: 37 33% 9%;
+        --popover-foreground: 42 32% 92%;
+        --primary: 45 66% 45%;
+        --primary-foreground: 36 40% 7%;
+        --secondary: 155 38% 12%;
+        --secondary-foreground: 42 32% 92%;
+        --muted: 150 22% 13%;
+        --muted-foreground: 40 14% 62%;
+        --accent: 45 66% 45%;
+        --accent-foreground: 36 40% 7%;
+        --destructive: 0 70% 50%;
+        --destructive-foreground: 42 32% 92%;
+        --border: 36 28% 16%;
+        --input: 36 24% 20%;
+        --ring: 45 66% 50%;
         --radius: 0.125rem;
     }
 }
@@ -47,11 +47,11 @@
         overflow-x: hidden;
     }
     ::selection {
-        background: #d61c24;
-        color: #ffffff;
+        background: #c9a227;
+        color: #16110a;
     }
     :focus-visible {
-        outline: 2px solid #d61c24;
+        outline: 2px solid #e3b94e;
         outline-offset: 3px;
     }
 }
@@ -64,15 +64,15 @@
         font-family: "JetBrains Mono", monospace;
     }
     .text-stroke {
-        -webkit-text-stroke: 1px rgba(255, 255, 255, 0.22);
+        -webkit-text-stroke: 1px rgba(241, 234, 216, 0.25);
         color: transparent;
     }
-    .text-stroke-red {
-        -webkit-text-stroke: 1px rgba(214, 28, 36, 0.75);
+    .text-stroke-gold {
+        -webkit-text-stroke: 1px rgba(201, 162, 39, 0.8);
         color: transparent;
     }
-    .glow-red {
-        box-shadow: 0 0 24px rgba(214, 28, 36, 0.35);
+    .glow-gold {
+        box-shadow: 0 0 26px rgba(201, 162, 39, 0.35);
     }
     .grain::after {
         content: "";

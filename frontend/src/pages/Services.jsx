@@ -19,15 +19,15 @@ const Services = () => (
         <header className="relative overflow-hidden border-b border-border pt-40 pb-20 sm:pb-28">
             <div className="absolute inset-0" aria-hidden="true">
                 <img src={IMAGES.memberDumbbell.src} alt="" className="h-full w-full object-cover object-center opacity-25" />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0B] via-[#0A0A0B]/75 to-[#0A0A0B]/50" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#16110A] via-[#16110A]/75 to-[#16110A]/50" />
             </div>
             <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-                <p className="font-mono2 text-[11px] sm:text-xs uppercase tracking-[0.3em] text-[#FF4A52]">Services</p>
+                <p className="font-mono2 text-[11px] sm:text-xs uppercase tracking-[0.3em] text-[#D9B85C]">Services</p>
                 <h1 className="mt-4 font-display text-5xl font-black uppercase leading-[0.9] tracking-tight text-white sm:text-7xl">
                     14 ways we
                     <span className="block text-stroke">build you up.</span>
                 </h1>
-                <p className="mt-6 max-w-2xl text-base leading-relaxed text-zinc-400 sm:text-lg">
+                <p className="mt-6 max-w-2xl text-base leading-relaxed text-stone-400 sm:text-lg">
                     Structured, coached and honest — every service below is delivered on the Ironblood floor. No guaranteed-result promises, just
                     professional work.
                 </p>
@@ -44,15 +44,15 @@ const Services = () => (
                             <motion.article
                                 key={s.title}
                                 variants={staggerItem}
-                                className="group bg-[#0A0A0B] p-8 transition-colors duration-300 hover:bg-[#121214]"
+                                className="group bg-[#16110A] p-8 transition-colors duration-300 hover:bg-[#211B10]"
                                 data-testid={`service-card-${i + 1}`}
                             >
                                 <div className="flex items-start justify-between">
-                                    <Icon className="h-6 w-6 text-[#D61C24] transition-colors group-hover:text-[#FF2A32]" aria-hidden="true" />
-                                    <span className="font-mono2 text-[9px] uppercase tracking-[0.25em] text-zinc-600">{s.tag}</span>
+                                    <Icon className="h-6 w-6 text-[#C9A227] transition-colors group-hover:text-[#E3B94E]" aria-hidden="true" />
+                                    <span className="font-mono2 text-[9px] uppercase tracking-[0.25em] text-stone-600">{s.tag}</span>
                                 </div>
                                 <h2 className="mt-6 font-display text-2xl font-extrabold uppercase leading-tight text-white">{s.title}</h2>
-                                <p className="mt-4 font-mono2 text-[10px] uppercase tracking-[0.2em] text-zinc-600">0{i + 1} / 14</p>
+                                <p className="mt-4 font-mono2 text-[10px] uppercase tracking-[0.2em] text-stone-600">0{i + 1} / 14</p>
                             </motion.article>
                         );
                     })}
@@ -63,15 +63,15 @@ const Services = () => (
         <section className="relative overflow-hidden border-y border-border" data-testid="services-training-banner">
             <div className="absolute inset-0" aria-hidden="true">
                 <img src={IMAGES.memberPress.src} alt="" loading="lazy" className="h-full w-full object-cover object-center" />
-                <div className="absolute inset-0 bg-[#0A0A0B]/80" />
+                <div className="absolute inset-0 bg-[#16110A]/80" />
             </div>
             <div className="relative mx-auto max-w-7xl px-4 py-24 sm:px-6 lg:px-8">
                 <Reveal>
-                    <p className="font-mono2 text-[11px] sm:text-xs uppercase tracking-[0.3em] text-[#FF4A52]">On the floor</p>
+                    <p className="font-mono2 text-[11px] sm:text-xs uppercase tracking-[0.3em] text-[#D9B85C]">On the floor</p>
                     <h2 className="mt-4 max-w-2xl font-display text-4xl font-extrabold uppercase leading-[0.95] text-white sm:text-5xl">
                         Coached sessions, not guesswork
                     </h2>
-                    <p className="mt-5 max-w-xl text-base leading-relaxed text-zinc-300">
+                    <p className="mt-5 max-w-xl text-base leading-relaxed text-stone-300">
                         Real training at Ironblood — members working under supervision with proper form, progression and attention.
                     </p>
                 </Reveal>

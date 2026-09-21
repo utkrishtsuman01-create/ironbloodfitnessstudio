@@ -36,10 +36,10 @@ const About = () => (
         <header className="relative overflow-hidden border-b border-border pt-40 pb-20 sm:pb-28">
             <div className="absolute inset-0" aria-hidden="true">
                 <img src={IMAGES.trophyWall.src} alt="" className="h-full w-full object-cover opacity-25" />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0B] via-[#0A0A0B]/70 to-[#0A0A0B]/50" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#16110A] via-[#16110A]/70 to-[#16110A]/50" />
             </div>
             <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-                <p className="font-mono2 text-[11px] sm:text-xs uppercase tracking-[0.3em] text-[#FF4A52]">About Ironblood</p>
+                <p className="font-mono2 text-[11px] sm:text-xs uppercase tracking-[0.3em] text-[#D9B85C]">About Ironblood</p>
                 <h1 className="mt-4 font-display text-5xl font-black uppercase leading-[0.9] tracking-tight text-white sm:text-7xl">
                     Iron in the blood.
                     <span className="block text-stroke">Discipline in the work.</span>
@@ -52,37 +52,37 @@ const About = () => (
                 <SectionHeading eyebrow="The Studio Manifesto" title="What we stand for" />
                 <Stagger className="mt-14 grid gap-px bg-border lg:grid-cols-3">
                     {CHAPTERS.map((c) => (
-                        <motion.article key={c.n} variants={staggerItem} className="bg-[#0A0A0B] p-8 sm:p-10" data-testid={`about-chapter-${c.n}`}>
-                            <p className="font-display text-6xl font-black text-stroke-red">{c.n}</p>
+                        <motion.article key={c.n} variants={staggerItem} className="bg-[#16110A] p-8 sm:p-10" data-testid={`about-chapter-${c.n}`}>
+                            <p className="font-display text-6xl font-black text-stroke-gold">{c.n}</p>
                             <h2 className="mt-5 font-display text-2xl font-extrabold uppercase leading-tight text-white">{c.t}</h2>
-                            <p className="mt-4 text-sm leading-relaxed text-zinc-400">{c.b}</p>
+                            <p className="mt-4 text-sm leading-relaxed text-stone-400">{c.b}</p>
                         </motion.article>
                     ))}
                 </Stagger>
             </div>
         </section>
 
-        <section className="border-y border-border bg-[#0E0E10] py-24 sm:py-32" data-testid="about-coach-section">
+        <section className="border-y border-border bg-[#132B20] py-24 sm:py-32" data-testid="about-coach-section">
             <div className="mx-auto grid max-w-7xl items-center gap-14 px-4 sm:px-6 lg:grid-cols-2 lg:px-8">
                 <Reveal>
                     <div className="relative">
-                        <div aria-hidden="true" className="absolute -inset-3 border border-[#D61C24]/30" />
+                        <div aria-hidden="true" className="absolute -inset-3 border border-[#C9A227]/30" />
                         <img src={IMAGES.bapiPose.src} alt={IMAGES.bapiPose.alt} loading="lazy" className="relative w-full border border-border object-cover" />
-                        <div className="absolute -bottom-6 -right-3 hidden w-40 border border-[#D61C24]/40 bg-[#0A0A0B] p-1.5 sm:block">
+                        <div className="absolute -bottom-6 -right-3 hidden w-40 border border-[#C9A227]/40 bg-[#16110A] p-1.5 sm:block">
                             <img src={IMAGES.bapiStageBw.src} alt={IMAGES.bapiStageBw.alt} loading="lazy" className="w-full object-cover" />
                         </div>
                     </div>
                 </Reveal>
                 <div>
                     <Reveal>
-                        <p className="font-mono2 text-[11px] uppercase tracking-[0.3em] text-[#FF4A52]">{BUSINESS.ownerTitle}</p>
+                        <p className="font-mono2 text-[11px] uppercase tracking-[0.3em] text-[#D9B85C]">{BUSINESS.ownerTitle}</p>
                         <h2 className="mt-4 font-display text-4xl font-extrabold uppercase leading-[0.95] tracking-tight text-white sm:text-5xl">
                             {BUSINESS.owner}
                         </h2>
-                        <blockquote className="mt-8 border-l-2 border-[#D61C24] pl-6 text-base leading-relaxed text-zinc-300 sm:text-lg">
+                        <blockquote className="mt-8 border-l-2 border-[#C9A227] pl-6 text-base leading-relaxed text-stone-300 sm:text-lg">
                             “{EXPERIENCE_COPY}”
                         </blockquote>
-                        <p className="mt-6 text-base leading-relaxed text-zinc-400">
+                        <p className="mt-6 text-base leading-relaxed text-stone-400">
                             His competitive record spans Mr. Universe, Mr. World, Mr. Asia and Mr. India stages — experience that shapes every
                             program written inside Ironblood Fitness Studio.
                         </p>
@@ -94,7 +94,7 @@ const About = () => (
                             "2× Junior Mr. India — Gold, IBBF",
                             "13× Mr. Bengal — Gold",
                         ].map((t) => (
-                            <motion.p key={t} variants={staggerItem} className="flex items-center gap-3 text-sm text-zinc-300">
+                            <motion.p key={t} variants={staggerItem} className="flex items-center gap-3 text-sm text-stone-300">
                                 <span className="h-1.5 w-1.5 rotate-45 bg-[#D4AF37]" aria-hidden="true" /> {t}
                             </motion.p>
                         ))}
@@ -103,7 +103,7 @@ const About = () => (
                         <Link
                             to="/achievements"
                             data-testid="about-achievements-link"
-                            className="inline-flex items-center gap-3 bg-[#D61C24] px-8 py-4 font-display text-base font-bold uppercase tracking-wider text-white transition-colors hover:bg-[#FF2A32]"
+                            className="inline-flex items-center gap-3 bg-[#C9A227] px-8 py-4 font-display text-base font-bold uppercase tracking-wider text-[#1B1409] transition-colors hover:bg-[#E3B94E]"
                         >
                             Full competition record <ArrowRight className="h-4 w-4" aria-hidden="true" />
                         </Link>
@@ -117,9 +117,9 @@ const About = () => (
                 <SectionHeading eyebrow="Coaching Scope" title="Specializations" />
                 <Stagger className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
                     {SPECIALIZATIONS.map((s) => (
-                        <motion.div key={s.title} variants={staggerItem} className="border border-border bg-[#121214] p-7 transition-colors hover:border-[#D61C24]/50">
+                        <motion.div key={s.title} variants={staggerItem} className="border border-border bg-[#211B10] p-7 transition-colors hover:border-[#C9A227]/50">
                             <h3 className="font-display text-xl font-extrabold uppercase text-white">{s.title}</h3>
-                            <p className="mt-3 text-sm text-zinc-500">{s.desc}</p>
+                            <p className="mt-3 text-sm text-stone-500">{s.desc}</p>
                         </motion.div>
                     ))}
                 </Stagger>

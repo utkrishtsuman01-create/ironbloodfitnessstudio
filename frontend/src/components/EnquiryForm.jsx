@@ -48,14 +48,14 @@ export const EnquiryForm = ({ testId = "enquiry" }) => {
     };
 
     const inputCls = (bad) =>
-        `w-full bg-[#0E0E10] border px-4 py-4 text-sm text-white placeholder:text-zinc-600 transition-colors focus:outline-none ${
-            bad ? "border-[#D61C24]" : "border-zinc-800 focus:border-zinc-500"
+        `w-full bg-[#132B20] border px-4 py-4 text-sm text-white placeholder:text-stone-600 transition-colors focus:outline-none ${
+            bad ? "border-[#C9A227]" : "border-stone-800 focus:border-stone-500"
         }`;
 
     return (
         <form onSubmit={submit} noValidate data-testid={`${testId}-form`} className="space-y-5">
             <div>
-                <label htmlFor={`${testId}-name`} className="mb-2 block font-mono2 text-[11px] uppercase tracking-[0.25em] text-zinc-500">
+                <label htmlFor={`${testId}-name`} className="mb-2 block font-mono2 text-[11px] uppercase tracking-[0.25em] text-stone-500">
                     Full Name
                 </label>
                 <input
@@ -69,10 +69,10 @@ export const EnquiryForm = ({ testId = "enquiry" }) => {
                     aria-invalid={!!errors.name}
                     className={inputCls(errors.name)}
                 />
-                {errors.name && <p className="mt-2 text-xs text-[#FF4A52]" data-testid={`${testId}-name-error`}>{errors.name}</p>}
+                {errors.name && <p className="mt-2 text-xs text-[#D9B85C]" data-testid={`${testId}-name-error`}>{errors.name}</p>}
             </div>
             <div>
-                <label htmlFor={`${testId}-phone`} className="mb-2 block font-mono2 text-[11px] uppercase tracking-[0.25em] text-zinc-500">
+                <label htmlFor={`${testId}-phone`} className="mb-2 block font-mono2 text-[11px] uppercase tracking-[0.25em] text-stone-500">
                     Phone Number
                 </label>
                 <input
@@ -87,10 +87,10 @@ export const EnquiryForm = ({ testId = "enquiry" }) => {
                     aria-invalid={!!errors.phone}
                     className={inputCls(errors.phone)}
                 />
-                {errors.phone && <p className="mt-2 text-xs text-[#FF4A52]" data-testid={`${testId}-phone-error`}>{errors.phone}</p>}
+                {errors.phone && <p className="mt-2 text-xs text-[#D9B85C]" data-testid={`${testId}-phone-error`}>{errors.phone}</p>}
             </div>
             <div>
-                <label htmlFor={`${testId}-message`} className="mb-2 block font-mono2 text-[11px] uppercase tracking-[0.25em] text-zinc-500">
+                <label htmlFor={`${testId}-message`} className="mb-2 block font-mono2 text-[11px] uppercase tracking-[0.25em] text-stone-500">
                     Message
                 </label>
                 <textarea
@@ -103,17 +103,17 @@ export const EnquiryForm = ({ testId = "enquiry" }) => {
                     aria-invalid={!!errors.message}
                     className={`${inputCls(errors.message)} resize-none`}
                 />
-                {errors.message && <p className="mt-2 text-xs text-[#FF4A52]" data-testid={`${testId}-message-error`}>{errors.message}</p>}
+                {errors.message && <p className="mt-2 text-xs text-[#D9B85C]" data-testid={`${testId}-message-error`}>{errors.message}</p>}
             </div>
             <button
                 type="submit"
                 data-testid={`${testId}-submit-button`}
-                className="group flex w-full items-center justify-center gap-3 bg-[#D61C24] py-4 font-display text-lg font-bold uppercase tracking-wider text-white transition-colors duration-300 hover:bg-[#FF2A32]"
+                className="group flex w-full items-center justify-center gap-3 bg-[#C9A227] py-4 font-display text-lg font-bold uppercase tracking-wider text-[#1B1409] transition-colors duration-300 hover:bg-[#E3B94E]"
             >
                 <Send className="h-5 w-5 transition-transform duration-300 group-hover:translate-x-1" aria-hidden="true" />
                 Send Enquiry on WhatsApp
             </button>
-            <p className="text-xs leading-relaxed text-zinc-600">
+            <p className="text-xs leading-relaxed text-stone-600">
                 This opens WhatsApp with your message pre-filled. Your enquiry is delivered only after you press Send inside WhatsApp.
             </p>
         </form>

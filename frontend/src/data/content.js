@@ -83,6 +83,10 @@ export const IMAGES = {
         src: "/images/bapi-stage-bw.jpg",
         alt: "Black and white stage portrait of Bapi Das in contest condition at a bodybuilding championship",
     },
+    bapiPodium: {
+        src: "/images/bapi-podium.jpg",
+        alt: "Bapi Das at the centre of the podium holding the Indian flag high, wearing his gold medal with the championship trophy at his feet",
+    },
     gymCommunity: {
         src: "/images/gym-community.jpg",
         alt: "Athletes of the Ironblood Fitness Championship posing with medals and certificates inside the studio",
@@ -318,5 +322,5 @@ export const MEDAL_STYLES = {
     gold: { dot: "#D4AF37", text: "text-[#D4AF37]", ring: "border-[#D4AF37]/40", label: "GOLD" },
     silver: { dot: "#C7C7CE", text: "text-[#C7C7CE]", ring: "border-[#C7C7CE]/40", label: "SILVER" },
     bronze: { dot: "#CD7F4E", text: "text-[#CD7F4E]", ring: "border-[#CD7F4E]/40", label: "BRONZE" },
-    ranking: { dot: "#D61C24", text: "text-[#FF4A52]", ring: "border-[#D61C24]/40", label: "RANKING" },
+    ranking: { dot: "#8CC084", text: "text-[#8CC084]", ring: "border-[#8CC084]/40", label: "RANKING" },
 };

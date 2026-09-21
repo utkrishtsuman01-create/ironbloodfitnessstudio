@@ -46,8 +46,8 @@ export const ReviewCarousel = () => {
                         transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
                         data-testid={`review-slide-${index + 1}`}
                     >
-                        <Quote className="h-8 w-8 text-[#D61C24]" aria-hidden="true" />
-                        <blockquote className="mt-5 text-base sm:text-lg leading-relaxed text-zinc-200 whitespace-pre-line">
+                        <Quote className="h-8 w-8 text-[#C9A227]" aria-hidden="true" />
+                        <blockquote className="mt-5 text-base sm:text-lg leading-relaxed text-stone-200 whitespace-pre-line">
                             “{review.text}”
                         </blockquote>
                         <figcaption className="mt-7 flex flex-wrap items-center gap-x-5 gap-y-2">
@@ -62,14 +62,14 @@ export const ReviewCarousel = () => {
                 </AnimatePresence>
             </div>
 
-            <div className="mt-10 flex items-center justify-between border-t border-zinc-900 pt-6">
+            <div className="mt-10 flex items-center justify-between border-t border-stone-900 pt-6">
                 <div className="flex items-center gap-3">
                     <button
                         type="button"
                         onClick={() => manual(index - 1)}
                         data-testid="review-carousel-prev-button"
                         aria-label="Previous review"
-                        className="flex h-11 w-11 items-center justify-center border border-zinc-700 text-white transition-colors hover:border-[#D61C24] hover:bg-[#D61C24]"
+                        className="flex h-11 w-11 items-center justify-center border border-stone-700 text-[#1B1409] transition-colors hover:border-[#C9A227] hover:bg-[#C9A227]"
                     >
                         <ArrowLeft className="h-4 w-4" aria-hidden="true" />
                     </button>
@@ -78,11 +78,11 @@ export const ReviewCarousel = () => {
                         onClick={() => manual(index + 1)}
                         data-testid="review-carousel-next-button"
                         aria-label="Next review"
-                        className="flex h-11 w-11 items-center justify-center border border-zinc-700 text-white transition-colors hover:border-[#D61C24] hover:bg-[#D61C24]"
+                        className="flex h-11 w-11 items-center justify-center border border-stone-700 text-[#1B1409] transition-colors hover:border-[#C9A227] hover:bg-[#C9A227]"
                     >
                         <ArrowRight className="h-4 w-4" aria-hidden="true" />
                     </button>
-                    <span data-testid="review-carousel-progress" className="ml-3 font-mono2 text-xs tracking-[0.2em] text-zinc-500">
+                    <span data-testid="review-carousel-progress" className="ml-3 font-mono2 text-xs tracking-[0.2em] text-stone-500">
                         {index + 1} / {REVIEWS.length}
                     </span>
                 </div>
@@ -91,7 +91,7 @@ export const ReviewCarousel = () => {
                     target="_blank"
                     rel="noopener noreferrer"
                     data-testid="review-carousel-google-link"
-                    className="font-mono2 text-[11px] uppercase tracking-[0.25em] text-zinc-500 transition-colors hover:text-[#FF4A52]"
+                    className="font-mono2 text-[11px] uppercase tracking-[0.25em] text-stone-500 transition-colors hover:text-[#D9B85C]"
                 >
                     Google Reviews ↗
                 </a>
@@ -99,7 +99,7 @@ export const ReviewCarousel = () => {
 
             <div className="mt-5 flex gap-1.5" aria-hidden="true">
                 {REVIEWS.map((_, i) => (
-                    <span key={i} className={`h-[3px] flex-1 transition-colors duration-500 ${i === index ? "bg-[#D61C24]" : "bg-zinc-800"}`} />
+                    <span key={i} className={`h-[3px] flex-1 transition-colors duration-500 ${i === index ? "bg-[#C9A227]" : "bg-stone-800"}`} />
                 ))}
             </div>
         </div>

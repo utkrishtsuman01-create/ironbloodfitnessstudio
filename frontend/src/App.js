@@ -49,7 +49,7 @@ function App() {
                     </Routes>
                 </main>
                 <Footer />
-                <Toaster theme="dark" position="bottom-center" toastOptions={{ style: { background: "#121214", border: "1px solid #27272A", color: "#fff", borderRadius: 0 } }} />
+                <Toaster theme="dark" position="bottom-center" toastOptions={{ style: { background: "#211B10", border: "1px solid #3A2E1A", color: "#fff", borderRadius: 0 } }} />
             </BrowserRouter>
         </div>
     );
