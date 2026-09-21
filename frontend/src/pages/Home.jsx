@@ -41,20 +41,11 @@ const Hero = () => {
                 style={{ y: textY }}
                 className="relative z-10 mx-auto flex w-full max-w-7xl flex-1 flex-col justify-center px-4 pb-16 pt-32 sm:px-6 lg:px-8"
             >
-                <motion.img
-                    src="/images/logo.png"
-                    alt="Ironblood Muscle and Fitness Studio — official logo"
-                    data-testid="hero-logo"
-                    initial={{ opacity: 0, y: 18 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.1, duration: 0.7 }}
-                    className="h-16 w-auto sm:h-24"
-                />
                 <motion.p
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     transition={{ delay: 0.2, duration: 0.6 }}
-                    className="mt-7 font-mono2 text-[11px] sm:text-xs uppercase tracking-[0.35em] text-[#D9B85C]"
+                    className="font-mono2 text-[11px] sm:text-xs uppercase tracking-[0.35em] text-[#D9B85C]"
                     data-testid="hero-eyebrow"
                 >
                     <span className="mr-3 inline-block h-2 w-2 animate-pulse-dot bg-[#C9A227]" aria-hidden="true" />
