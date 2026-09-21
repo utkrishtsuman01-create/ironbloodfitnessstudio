@@ -1,0 +1,183 @@
+{
+  "project_name": "IRONBLOOD FITNESS STUDIO ♾️",
+  "brand_identity": {
+    "owner_coach": "Bapi Das",
+    "owner_title": "Professional Bodybuilder & Master Coach",
+    "experience_years": "12+",
+    "key_achievements": [
+      "Junior Mr. India Gold (2016)",
+      "Junior Mr. India Gold (2017)",
+      "Mr. World Double Gold (2018)",
+      "Mr. Universe Double Gold (2023)",
+      "Mr. Asia Silver & Bronze (2019)",
+      "13x Mr. Bengal Gold Champion"
+    ],
+    "brand_pillars": [
+      "Serious Bodybuilding",
+      "Professional Elite Coaching",
+      "Raw Strength & Unyielding Discipline",
+      "Peak Athletic Transformation"
+    ],
+    "location": "Kolkata, West Bengal, India"
+  },
+  "visual_theme": {
+    "theme": "Cinematic Dark Athletic Luxury",
+    "archetype": "ARCHETYPE 2: THE PERFORMANCE PRO & ARCHETYPE 5: LUXURY (Dark Cinematic)",
+    "mood": "Elite, Powerful, Masculine, Cinematic, Modern, High-Contrast, Industrial Luxury",
+    "color_palette": {
+      "background_dark": "#0A0A0B",
+      "background_card": "#121214",
+      "background_card_hover": "#1A1A1E",
+      "crimson_accent": "#D61C24",
+      "crimson_glow": "#FF2A32",
+      "metallic_steel": "#8E8E93",
+      "metallic_gold": "#D4AF37",
+      "text_primary": "#FFFFFF",
+      "text_secondary": "#A1A1AA",
+      "text_muted": "#52525B",
+      "border_dark": "#27272A",
+      "border_active": "#D61C24"
+    }
+  },
+  "typography": {
+    "heading_font": "Barlow Condensed, Oswald, Bebas Neue, sans-serif",
+    "body_font": "Inter, DM Sans, sans-serif",
+    "mono_font": "JetBrains Mono, monospace",
+    "font_rules": {
+      "h1": "text-4xl sm:text-6xl lg:text-7xl font-black uppercase tracking-tight text-white leading-none",
+      "h2": "text-3xl sm:text-4xl lg:text-5xl font-extrabold uppercase tracking-tight text-white",
+      "h3": "text-xl sm:text-2xl lg:text-3xl font-bold uppercase text-white",
+      "eyebrow_label": "text-xs sm:text-sm font-mono uppercase tracking-[0.25em] text-red-500 font-semibold",
+      "body": "text-base sm:text-lg text-zinc-300 leading-relaxed",
+      "caption": "text-sm text-zinc-400 font-mono"
+    }
+  },
+  "layout_and_spacing": {
+    "spacing_scale": "p-4, p-6, p-8, p-12, p-16, p-24, py-32",
+    "containers": "max-w-7xl mx-auto px-4 sm:px-6 lg:px-8",
+    "sharp_edges": "rounded-none or max rounded-sm (sharp industrial aesthetic, strictly avoid large rounded-3xl soft cards)",
+    "grid_modes": {
+      "achievements": "grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6",
+      "services": "grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8",
+      "gallery": "grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4",
+      "bento_hero": "grid-cols-1 lg:grid-cols-12 gap-8"
+    }
+  },
+  "motion_and_interactions": {
+    "smooth_scroll": "Lenis momentum scroll engine",
+    "animations": "Framer Motion line-by-line masked reveal, staggered scroll reveal, card hover translation -translate-y-1, red glowing borders",
+    "micro_interactions": "High-contrast hover feedback on all buttons, pulsing crimson indicators, gold shine effect on trophy cards"
+  },
+  "image_urls": {
+    "hero_background": "https://images.pexels.com/photos/17852467/pexels-photo-17852467.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+    "owner_portrait_1": "https://images.pexels.com/photos/17852467/pexels-photo-17852467.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+    "owner_portrait_2": "https://images.pexels.com/photos/17852468/pexels-photo-17852468.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+    "gym_interior_1": "https://images.unsplash.com/photo-1603665409265-bdc00027c217?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA1NTZ8MHwxfHNlYXJjaHwzfHxkYXJrJTIwaW5kdXN0cmlhbCUyMGd5bSUyMHJlZCUyMGludGVyaW9yJTIwbGlnaHRzJTIwYmFyYmVsbCUyMHdlaWdodHN8ZW58MHx8fHwxNzg5OTYwMTQ3fDA&ixlib=rb-4.1.0&q=85",
+    "gym_interior_2": "https://images.unsplash.com/photo-1685633224767-361354e84e2b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA1NTZ8MHwxfHNlYXJjaHxfHxkYXJrJTIwaW5kdXN0cmlhbCUyMGd5bSUyMHJlZCUyMGludGVyaW9yJTIwbGlnaHRzJTIwYmFyYmVsbCUyMHdlaWdodHN8ZW58MHx8fHwxNzg5OTYwMTQ3fDA&ixlib=rb-4.1.0&q=85",
+    "gym_equipment": "https://images.pexels.com/photos/28978375/pexels-photo-28978375.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+    "trophy_medals": "https://images.pexels.com/photos/36728008/pexels-photo-36728008.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+    "gallery_list": [
+      "https://images.pexels.com/photos/17852467/pexels-photo-17852467.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+      "https://images.pexels.com/photos/17852468/pexels-photo-17852468.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+      "https://images.unsplash.com/photo-1603665409265-bdc00027c217?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA1NTZ8MHwxfHNlYXJjaHwzfHxkYXJrJTIwaW5kdXN0cmlhbCUyMGd5bSUyMHJlZCUyMGludGVyaW9yJTIwbGlnaHRzJTIwYmFyYmVsbCUyMHdlaWdodHN8ZW58MHx8fHwxNzg5OTYwMTQ3fDA&ixlib=rb-4.1.0&q=85",
+      "https://images.unsplash.com/photo-1605296867724-fa87a8ef53fd?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzd8MHwxfHNlYXJjaHwzfHxib2R5YnVpbGRlciUyMHBvc2luZyUyMGRhcmslMjBtb29kJTIwc3RhZ2UlMjBsaWdodHxlbnwwfHx8fDE3ODk5NjAxNDd8MA&ixlib=rb-4.1.0&q=85",
+      "https://images.pexels.com/photos/28978375/pexels-photo-28978375.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+      "https://images.pexels.com/photos/36728008/pexels-photo-36728008.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+    ]
+  },
+  "pages_and_features": [
+    {
+      "page": "Home",
+      "route": "/",
+      "components": [
+        "Cinematic Hero with headline reveal & background video/image parallax",
+        "Owner / Master Coach Bapi Das Spotlight with double-gold title callouts",
+        "14 Competition Achievements Highlight Ticker / Grid preview",
+        "12+ Years Experience & Studio Manifesto Chapters",
+        "14 Services Overview grid",
+        "Facilities Preview with LED industrial dark imagery",
+        "Interactive Single-Item Auto Review Carousel (10 reviews)",
+        "WhatsApp Direct Enquiry CTA Banner"
+      ]
+    },
+    {
+      "page": "About",
+      "route": "/about",
+      "components": [
+        "Origin Story of Ironblood Studio Kolkata",
+        "Bapi Das Full Biography & Coach Philosophy",
+        "Certifications, Training System & Mentorship Approach",
+        "Studio Values (Discipline, Performance, No Gimmicks)"
+      ]
+    },
+    {
+      "page": "Achievements",
+      "route": "/achievements",
+      "components": [
+        "Full 14 Competitive Achievements Visual Timeline",
+        "Medal-Tier Hierarchy Filter (Gold / Silver / Bronze / Ranking)",
+        "Trophy Showcase Cards with Metallic Accents"
+      ]
+    },
+    {
+      "page": "Services",
+      "route": "/services",
+      "components": [
+        "14 Confirmed Bodybuilding & Personal Training Services",
+        "Service Detail Cards with Spec List & Direct Coach Enquiry"
+      ]
+    },
+    {
+      "page": "Facilities",
+      "route": "/facilities",
+      "components": [
+        "Industrial Equipment Showcase",
+        "Posing Room, Free Weights Area, Cardio Deck, Power Racks",
+        "LED Lighting Atmosphere & Studio Walkthrough Preview"
+      ]
+    },
+    {
+      "page": "Memberships",
+      "route": "/memberships",
+      "components": [
+        "Tiered Membership Plans (General Membership, Personal Coaching, Contest Prep)",
+        "No Fake Prices - Direct WhatsApp Enquiry Action Buttons",
+        "Membership Benefits Breakdown"
+      ]
+    },
+    {
+      "page": "Gallery",
+      "route": "/gallery",
+      "components": [
+        "Filterable Responsive Masonry Photo Grid",
+        "Full-screen Lightbox Modal with Caption & Zoom"
+      ]
+    },
+    {
+      "page": "Contact",
+      "route": "/contact",
+      "components": [
+        "WhatsApp Direct Enquiry Form with Auto-fill Message Generator",
+        "Phone Call Button, Location Address in Kolkata, Hours",
+        "Interactive Map Placeholder & Studio Directions"
+      ]
+    }
+  ],
+  "testing_strategy": {
+    "data_testid_required": true,
+    "data_testid_convention": "kebab-case, role-based e.g., 'nav-home-link', 'hero-whatsapp-cta-button', 'achievement-filter-gold-button', 'review-carousel-next-button'",
+    "rules": [
+      "All buttons, inputs, links, tabs, and interactive elements MUST have a unique data-testid.",
+      "Never use appearance-based data-testid values like 'red-button'."
+    ]
+  },
+  "GENERAL_UI_UX_DESIGN_GUIDELINES": [
+    "Never use generic AI template styles, soft rounded pastel cards, or bright colorful gradients.",
+    "Maintain strict dark background contrast (#0A0A0B background with #121214 cards and 1px #27272A borders).",
+    "Header must have a solid or dark glassmorphism background with backdrop-blur-md (never 100% transparent drop).",
+    "Ensure all interactive states (hover, focus, active) have explicitly set high-contrast text and background states.",
+    "Mobile menu must feel custom designed, high-impact, full-screen dark athletic overlay.",
+    "Form inputs must send enquiry directly to WhatsApp with pre-formatted professional message."
+  ],
+  "instructions_to_main_agent": "Use React with React Router, Lucide Icons / Heroicons, Lenis for smooth scroll, and Framer Motion for scroll-reveals. Implement all 8 pages seamlessly with data-testid attributes on every interactive element. Ensure the brand identity of Ironblood Fitness Studio and Coach Bapi Das feels world-class, authentic, and dominant."
+}
