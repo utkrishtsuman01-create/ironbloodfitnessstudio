@@ -88,7 +88,7 @@ const Contact = () => (
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 data-testid="contact-whatsapp-button"
-                                className="inline-flex flex-1 items-center justify-center gap-3 border border-stone-600 px-6 py-4 font-display text-base font-bold uppercase tracking-wider text-white transition-colors hover:border-white"
+                                className="inline-flex flex-1 items-center justify-center gap-3 border border-[#C9A227]/60 px-6 py-4 font-display text-base font-bold uppercase tracking-wider text-white transition-colors hover:border-[#E3B94E]"
                             >
                                 <MessageCircle className="h-4 w-4" aria-hidden="true" /> WhatsApp
                             </a>
@@ -97,7 +97,7 @@ const Contact = () => (
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 data-testid="contact-directions-button"
-                                className="inline-flex flex-1 items-center justify-center gap-3 border border-stone-600 px-6 py-4 font-display text-base font-bold uppercase tracking-wider text-white transition-colors hover:border-white"
+                                className="inline-flex flex-1 items-center justify-center gap-3 border border-[#C9A227]/60 px-6 py-4 font-display text-base font-bold uppercase tracking-wider text-white transition-colors hover:border-[#E3B94E]"
                             >
                                 <MapPin className="h-4 w-4" aria-hidden="true" /> Get Directions
                             </a>
@@ -134,7 +134,7 @@ const Contact = () => (
                             target="_blank"
                             rel="noopener noreferrer"
                             data-testid="contact-map-directions-button"
-                            className="inline-flex items-center gap-2 border border-stone-600 px-6 py-3 font-display text-sm font-bold uppercase tracking-wider text-[#1B1409] transition-colors hover:border-[#C9A227] hover:bg-[#C9A227]"
+                            className="inline-flex items-center gap-2 border border-[#C9A227]/60 px-6 py-3 font-display text-sm font-bold uppercase tracking-wider text-[#1B1409] transition-colors hover:border-[#C9A227] hover:bg-[#C9A227]"
                         >
                             <MapPin className="h-4 w-4" aria-hidden="true" /> Open in Google Maps
                         </a>

@@ -69,7 +69,7 @@ export const ReviewCarousel = () => {
                         onClick={() => manual(index - 1)}
                         data-testid="review-carousel-prev-button"
                         aria-label="Previous review"
-                        className="flex h-11 w-11 items-center justify-center border border-stone-700 text-[#1B1409] transition-colors hover:border-[#C9A227] hover:bg-[#C9A227]"
+                        className="flex h-11 w-11 items-center justify-center border border-[#C9A227]/50 text-[#1B1409] transition-colors hover:border-[#C9A227] hover:bg-[#C9A227]"
                     >
                         <ArrowLeft className="h-4 w-4" aria-hidden="true" />
                     </button>
@@ -78,7 +78,7 @@ export const ReviewCarousel = () => {
                         onClick={() => manual(index + 1)}
                         data-testid="review-carousel-next-button"
                         aria-label="Next review"
-                        className="flex h-11 w-11 items-center justify-center border border-stone-700 text-[#1B1409] transition-colors hover:border-[#C9A227] hover:bg-[#C9A227]"
+                        className="flex h-11 w-11 items-center justify-center border border-[#C9A227]/50 text-[#1B1409] transition-colors hover:border-[#C9A227] hover:bg-[#C9A227]"
                     >
                         <ArrowRight className="h-4 w-4" aria-hidden="true" />
                     </button>

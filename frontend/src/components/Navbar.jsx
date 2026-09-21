@@ -70,7 +70,7 @@ export const Navbar = () => {
                     onClick={() => setOpen((v) => !v)}
                     aria-expanded={open}
                     aria-label={open ? "Close menu" : "Open menu"}
-                    className="lg:hidden flex h-11 w-11 items-center justify-center border border-stone-700 text-white transition-colors hover:border-[#C9A227]"
+                    className="lg:hidden flex h-11 w-11 items-center justify-center border border-[#C9A227]/50 text-white transition-colors hover:border-[#C9A227]"
                 >
                     {open ? <X className="h-5 w-5" aria-hidden="true" /> : <Menu className="h-5 w-5" aria-hidden="true" />}
                 </button>

@@ -92,7 +92,7 @@ const Memberships = () => (
                                 className={`mt-6 inline-flex items-center justify-center gap-3 px-6 py-4 font-display text-base font-bold uppercase tracking-wider transition-colors duration-300 ${
                                     p.featured
                                         ? "bg-[#C9A227] text-[#1B1409] hover:bg-[#E3B94E]"
-                                        : "border border-stone-600 text-white hover:border-white hover:bg-white/5"
+                                        : "border border-[#C9A227]/60 text-white hover:border-[#E3B94E] hover:bg-white/5"
                                 }`}
                             >
                                 <MessageCircle className="h-4 w-4" aria-hidden="true" /> Enquire for membership
@@ -116,7 +116,7 @@ const Memberships = () => (
                         <Link
                             to="/contact"
                             data-testid="membership-contact-link"
-                            className="inline-flex items-center justify-center gap-3 border border-stone-600 px-8 py-4 font-display text-lg font-bold uppercase tracking-wider text-white transition-colors hover:border-white"
+                            className="inline-flex items-center justify-center gap-3 border border-[#C9A227]/60 px-8 py-4 font-display text-lg font-bold uppercase tracking-wider text-white transition-colors hover:border-[#E3B94E]"
                         >
                             Send an enquiry <ArrowRight className="h-5 w-5" aria-hidden="true" />
                         </Link>

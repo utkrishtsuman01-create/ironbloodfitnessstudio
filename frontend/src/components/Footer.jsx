@@ -28,7 +28,7 @@ export const Footer = () => (
                             target="_blank"
                             rel="noopener noreferrer"
                             data-testid="footer-whatsapp-button"
-                            className="inline-flex items-center gap-2 border border-stone-600 px-5 py-3 font-display text-sm font-bold uppercase tracking-wider text-white transition-colors hover:border-white"
+                            className="inline-flex items-center gap-2 border border-[#C9A227]/60 px-5 py-3 font-display text-sm font-bold uppercase tracking-wider text-white transition-colors hover:border-[#E3B94E]"
                         >
                             <MessageCircle className="h-4 w-4" aria-hidden="true" /> WhatsApp
                         </a>
@@ -37,7 +37,7 @@ export const Footer = () => (
                             target="_blank"
                             rel="noopener noreferrer"
                             data-testid="footer-directions-button"
-                            className="inline-flex items-center gap-2 border border-stone-600 px-5 py-3 font-display text-sm font-bold uppercase tracking-wider text-white transition-colors hover:border-white"
+                            className="inline-flex items-center gap-2 border border-[#C9A227]/60 px-5 py-3 font-display text-sm font-bold uppercase tracking-wider text-white transition-colors hover:border-[#E3B94E]"
                         >
                             <MapPin className="h-4 w-4" aria-hidden="true" /> Get Directions
                         </a>

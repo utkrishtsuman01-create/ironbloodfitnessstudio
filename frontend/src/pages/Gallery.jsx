@@ -46,7 +46,7 @@ const Gallery = () => {
                                 className={`border px-5 py-2.5 font-display text-sm font-bold uppercase tracking-wider transition-colors duration-200 ${
                                     cat === c
                                         ? "border-[#C9A227] bg-[#C9A227] text-[#1B1409]"
-                                        : "border-stone-700 text-stone-400 hover:border-stone-400 hover:text-white"
+                                        : "border-[#C9A227]/50 text-stone-400 hover:border-stone-400 hover:text-white"
                                 }`}
                             >
                                 {c}

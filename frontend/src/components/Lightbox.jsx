@@ -43,7 +43,7 @@ export const Lightbox = ({ images, index, onClose, onNavigate }) => {
                         onClick={onClose}
                         data-testid="lightbox-close-button"
                         aria-label="Close image viewer"
-                        className="absolute right-4 top-4 z-10 flex h-11 w-11 items-center justify-center border border-stone-700 text-[#1B1409] transition-colors hover:border-[#C9A227] hover:bg-[#C9A227]"
+                        className="absolute right-4 top-4 z-10 flex h-11 w-11 items-center justify-center border border-[#C9A227]/50 text-[#1B1409] transition-colors hover:border-[#C9A227] hover:bg-[#C9A227]"
                     >
                         <X className="h-5 w-5" aria-hidden="true" />
                     </button>
@@ -52,7 +52,7 @@ export const Lightbox = ({ images, index, onClose, onNavigate }) => {
                         onClick={(e) => { e.stopPropagation(); prev(); }}
                         data-testid="lightbox-prev-button"
                         aria-label="Previous image"
-                        className="absolute left-3 sm:left-6 top-1/2 z-10 flex h-11 w-11 -translate-y-1/2 items-center justify-center border border-stone-700 bg-black/60 text-[#1B1409] transition-colors hover:border-[#C9A227] hover:bg-[#C9A227]"
+                        className="absolute left-3 sm:left-6 top-1/2 z-10 flex h-11 w-11 -translate-y-1/2 items-center justify-center border border-[#C9A227]/50 bg-black/60 text-[#1B1409] transition-colors hover:border-[#C9A227] hover:bg-[#C9A227]"
                     >
                         <ArrowLeft className="h-5 w-5" aria-hidden="true" />
                     </button>
@@ -61,7 +61,7 @@ export const Lightbox = ({ images, index, onClose, onNavigate }) => {
                         onClick={(e) => { e.stopPropagation(); next(); }}
                         data-testid="lightbox-next-button"
                         aria-label="Next image"
-                        className="absolute right-3 sm:right-6 top-1/2 z-10 flex h-11 w-11 -translate-y-1/2 items-center justify-center border border-stone-700 bg-black/60 text-[#1B1409] transition-colors hover:border-[#C9A227] hover:bg-[#C9A227]"
+                        className="absolute right-3 sm:right-6 top-1/2 z-10 flex h-11 w-11 -translate-y-1/2 items-center justify-center border border-[#C9A227]/50 bg-black/60 text-[#1B1409] transition-colors hover:border-[#C9A227] hover:bg-[#C9A227]"
                     >
                         <ArrowRight className="h-5 w-5" aria-hidden="true" />
                     </button>

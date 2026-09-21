@@ -218,7 +218,7 @@ const OwnerShowcase = () => (
                             target="_blank"
                             rel="noopener noreferrer"
                             data-testid="owner-whatsapp-button"
-                            className="inline-flex items-center justify-center gap-3 border border-stone-600 px-8 py-4 font-display text-lg font-bold uppercase tracking-wider text-white transition-colors duration-300 hover:border-white hover:bg-white/5"
+                            className="inline-flex items-center justify-center gap-3 border border-[#C9A227]/60 px-8 py-4 font-display text-lg font-bold uppercase tracking-wider text-white transition-colors duration-300 hover:border-[#E3B94E] hover:bg-white/5"
                         >
                             <MessageCircle className="h-5 w-5" aria-hidden="true" /> Enquire on WhatsApp
                         </a>
@@ -281,7 +281,7 @@ const AchievementPreview = () => {
                     <Link
                         to="/achievements"
                         data-testid="achievement-preview-all-link"
-                        className="inline-flex items-center gap-3 border border-stone-600 px-8 py-4 font-display text-base font-bold uppercase tracking-wider text-[#1B1409] transition-colors duration-300 hover:border-[#C9A227] hover:bg-[#C9A227]"
+                        className="inline-flex items-center gap-3 border border-[#C9A227]/60 px-8 py-4 font-display text-base font-bold uppercase tracking-wider text-[#1B1409] transition-colors duration-300 hover:border-[#C9A227] hover:bg-[#C9A227]"
                     >
                         View all 14 achievements <ArrowRight className="h-4 w-4" aria-hidden="true" />
                     </Link>
@@ -487,7 +487,7 @@ const ContactStrip = () => (
                 <Link
                     to="/contact"
                     data-testid="contact-strip-contact-link"
-                    className="inline-flex items-center justify-center gap-3 border border-stone-600 px-8 py-5 font-display text-lg font-bold uppercase tracking-wider text-white transition-colors hover:border-white"
+                    className="inline-flex items-center justify-center gap-3 border border-[#C9A227]/60 px-8 py-5 font-display text-lg font-bold uppercase tracking-wider text-white transition-colors hover:border-[#E3B94E]"
                 >
                     Contact the studio
                 </Link>
