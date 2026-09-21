@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Phone, MessageCircle, MapPin, Clock } from "lucide-react";
+import { Phone, MessageCircle, MapPin, Clock, Mail } from "lucide-react";
 import { BUSINESS, NAV_LINKS, SOCIALS, telHref, waHref } from "@/data/content";
 import SocialIcons from "@/components/SocialIcons";
 
@@ -85,6 +85,17 @@ export const Footer = () => (
                         <h3 className="font-mono2 text-[11px] uppercase tracking-[0.3em] text-stone-500">Call</h3>
                         <a href={telHref} data-testid="footer-phone-link" className="mt-3 block font-display text-2xl font-bold text-white hover:text-[#D9B85C] transition-colors">
                             {BUSINESS.phoneDisplay}
+                        </a>
+                    </div>
+                    <div>
+                        <h3 className="font-mono2 text-[11px] uppercase tracking-[0.3em] text-stone-500">Email</h3>
+                        <a
+                            href={`mailto:${BUSINESS.email}`}
+                            data-testid="footer-email-link"
+                            className="mt-3 flex items-center gap-2 break-all text-sm text-stone-300 transition-colors hover:text-[#E3B94E]"
+                        >
+                            <Mail className="h-4 w-4 shrink-0 text-[#E3B94E]" aria-hidden="true" />
+                            {BUSINESS.email}
                         </a>
                     </div>
                     <div>

@@ -7,6 +7,7 @@ export const BUSINESS = {
     addressShort: "Bansdroni Park, Kolkata",
     phoneDisplay: "+91 82820 72600",
     phoneRaw: "+918282072600",
+    email: "ironbloodmuscleandfitness@gmail.com",
     whatsappNumber: "918282072600",
     hoursDays: "MONDAY – SATURDAY",
     hoursMorning: "6:30 AM – 12:00 PM",

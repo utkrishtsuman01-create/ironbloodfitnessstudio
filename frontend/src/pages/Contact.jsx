@@ -1,4 +1,4 @@
-import { Phone, MessageCircle, MapPin, Clock } from "lucide-react";
+import { Phone, MessageCircle, MapPin, Clock, Mail } from "lucide-react";
 import Seo from "@/components/Seo";
 import { Reveal } from "@/components/Reveal";
 import EnquiryForm from "@/components/EnquiryForm";
@@ -18,6 +18,13 @@ const INFO = [
         lines: [BUSINESS.phoneDisplay],
         href: telHref,
         testId: "contact-phone",
+    },
+    {
+        icon: Mail,
+        label: "Email",
+        lines: [BUSINESS.email],
+        href: `mailto:${BUSINESS.email}`,
+        testId: "contact-email",
     },
     {
         icon: Clock,

@@ -1,7 +1,7 @@
 import { useRef } from "react";
 import { Link } from "react-router-dom";
 import { motion, useScroll, useTransform } from "framer-motion";
-import { ArrowRight, Phone, MessageCircle, MapPin, Medal, Trophy, Award, Dumbbell } from "lucide-react";
+import { ArrowRight, Phone, MessageCircle, MapPin, Medal, Trophy, Award, Dumbbell, Mail } from "lucide-react";
 import Seo from "@/components/Seo";
 import { Reveal, MaskedLines, Stagger, staggerItem } from "@/components/Reveal";
 import SectionHeading from "@/components/SectionHeading";
@@ -595,6 +595,16 @@ const ContactStrip = () => (
                     {BUSINESS.addressLines[1]}
                 </address>
                 <HoursBlock tone="onGold" className="mt-7" />
+                <p className="mt-5 flex items-center gap-3 text-sm text-[#37422F]">
+                    <Mail className="h-4 w-4 shrink-0 text-[#1B5E3A]" aria-hidden="true" />
+                    <a
+                        href={`mailto:${BUSINESS.email}`}
+                        data-testid="contact-strip-email-link"
+                        className="break-all underline-offset-4 transition-colors hover:text-[#1B5E3A] hover:underline"
+                    >
+                        {BUSINESS.email}
+                    </a>
+                </p>
             </Reveal>
             <Reveal delay={0.1} className="flex flex-col justify-center gap-4">
                 <a
