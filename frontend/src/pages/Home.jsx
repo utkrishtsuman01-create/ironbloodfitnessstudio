@@ -39,7 +39,7 @@ const Hero = () => {
 
             <motion.div
                 style={{ y: textY }}
-                className="relative z-10 mx-auto flex w-full max-w-7xl flex-1 flex-col justify-center px-4 pb-16 pt-32 sm:px-6 lg:px-8"
+                className="relative z-10 mx-auto flex w-full max-w-7xl flex-1 flex-col justify-center px-4 pb-32 pt-28 sm:px-6 sm:pb-40 lg:px-8"
             >
                 <motion.p
                     initial={{ opacity: 0 }}
