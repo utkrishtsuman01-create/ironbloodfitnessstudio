@@ -8,6 +8,7 @@ import SectionHeading from "@/components/SectionHeading";
 import Marquee from "@/components/Marquee";
 import CtaBanner from "@/components/CtaBanner";
 import ReviewCarousel from "@/components/ReviewCarousel";
+import GoogleRatingBadge from "@/components/GoogleRatingBadge";
 import { BUSINESS, IMAGES, GALLERY, ACHIEVEMENTS, SPECIALIZATIONS, SERVICES, FACILITIES, EXPERIENCE_COPY, MEDAL_STYLES, telHref, waHref } from "@/data/content";
 
 const PEAK_IDS = [4, 3, 1, 8];
@@ -282,6 +283,26 @@ const AchievementPreview = () => {
                     ))}
                 </Stagger>
                 <Reveal className="mt-12">
+                    <figure className="group relative overflow-hidden border border-border" data-testid="champion-stage-banner">
+                        <img
+                            src={IMAGES.bapiTrophyFlag.src}
+                            alt={IMAGES.bapiTrophyFlag.alt}
+                            loading="lazy"
+                            className="max-h-[540px] w-full object-cover object-[50%_20%] transition-transform duration-700 group-hover:scale-[1.03]"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent" aria-hidden="true" />
+                        <figcaption className="absolute bottom-0 left-0 right-0 flex flex-wrap items-end justify-between gap-3 p-6 sm:p-8">
+                            <span>
+                                <span className="block font-mono2 text-[10px] uppercase tracking-[0.3em] text-[#D4AF37]">Championship stage</span>
+                                <span className="mt-2 block font-display text-2xl font-extrabold uppercase leading-tight text-white sm:text-3xl">
+                                    The work, made visible
+                                </span>
+                            </span>
+                            <span className="font-mono2 text-[10px] uppercase tracking-[0.25em] text-zinc-400">Trophy · Medal · Flag</span>
+                        </figcaption>
+                    </figure>
+                </Reveal>
+                <Reveal className="mt-12">
                     <Link
                         to="/achievements"
                         data-testid="achievement-preview-all-link"
@@ -448,9 +469,12 @@ const Reviews = () => (
     <section className="border-t border-border bg-[#0E0E10] py-24 sm:py-32" data-testid="reviews-section">
         <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
             <p className="font-mono2 text-[11px] sm:text-xs uppercase tracking-[0.3em] text-[#FF4A52]">Chapter 09 — Members</p>
-            <h2 className="mt-4 font-display text-4xl font-extrabold uppercase tracking-tight text-white sm:text-5xl lg:text-6xl">
-                What our members say
-            </h2>
+            <div className="mt-4 flex flex-wrap items-end justify-between gap-6">
+                <h2 className="font-display text-4xl font-extrabold uppercase tracking-tight text-white sm:text-5xl lg:text-6xl">
+                    What our members say
+                </h2>
+                <GoogleRatingBadge testId="reviews-google-rating-badge" />
+            </div>
             <div className="mt-12">
                 <ReviewCarousel />
             </div>

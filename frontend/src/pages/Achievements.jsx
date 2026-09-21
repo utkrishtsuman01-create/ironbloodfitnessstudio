@@ -56,6 +56,30 @@ const Achievements = () => {
                 </div>
             </section>
 
+            <section className="border-b border-border bg-[#0E0E10] py-16 sm:py-20" data-testid="on-stage-section">
+                <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+                    <div className="flex items-end justify-between gap-6">
+                        <h2 className="font-display text-3xl font-extrabold uppercase tracking-tight text-white sm:text-4xl">On stage</h2>
+                        <p className="hidden font-mono2 text-[10px] uppercase tracking-[0.25em] text-zinc-600 sm:block">Contest condition · Championship lights</p>
+                    </div>
+                    <div className="mt-10 grid gap-5 sm:grid-cols-2">
+                        {[IMAGES.bapiStageBw, IMAGES.bapiStageSide].map((img) => (
+                            <Reveal key={img.src}>
+                                <figure className="group relative overflow-hidden border border-border">
+                                    <img
+                                        src={img.src}
+                                        alt={img.alt}
+                                        loading="lazy"
+                                        className="aspect-[4/5] w-full object-cover object-top transition-transform duration-700 group-hover:scale-[1.03]"
+                                    />
+                                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-70" aria-hidden="true" />
+                                </figure>
+                            </Reveal>
+                        ))}
+                    </div>
+                </div>
+            </section>
+
             <section className="py-20 sm:py-28" data-testid="achievements-list-section">
                 <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                     <div className="flex flex-wrap gap-2" role="group" aria-label="Filter achievements by medal">

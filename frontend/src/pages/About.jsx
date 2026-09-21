@@ -68,6 +68,9 @@ const About = () => (
                     <div className="relative">
                         <div aria-hidden="true" className="absolute -inset-3 border border-[#D61C24]/30" />
                         <img src={IMAGES.bapiPose.src} alt={IMAGES.bapiPose.alt} loading="lazy" className="relative w-full border border-border object-cover" />
+                        <div className="absolute -bottom-6 -right-3 hidden w-40 border border-[#D61C24]/40 bg-[#0A0A0B] p-1.5 sm:block">
+                            <img src={IMAGES.bapiStageBw.src} alt={IMAGES.bapiStageBw.alt} loading="lazy" className="w-full object-cover" />
+                        </div>
                     </div>
                 </Reveal>
                 <div>

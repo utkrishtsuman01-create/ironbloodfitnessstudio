@@ -22,7 +22,9 @@ Owner credibility first; premium dark UI; real imagery only; WhatsApp-first conv
 - Home: kinetic hero (masked line reveal, parallax framed owner portrait, stats strip), editorial marquee, studio intro, Bapi Das showcase, competition-record preview, 12+ years, specializations, training banner, facilities + gallery previews, membership CTA, 10-review single-item auto carousel (prev/next, 1/10, pause-on-hover), contact strip
 - About (manifesto chapters, coach profile), Achievements (champion poster banner, Gold/Silver/Bronze/Ranking filters, all 14 cards, trophy-wall proof), Services (14 cards + training banner), Facilities (7 image-backed cards), Memberships (3 enquiry tiers, no prices), Gallery (category filters + keyboard-navigable lightbox), Contact (info + validated WhatsApp enquiry form), styled 404
 - Sticky nav + full-screen mobile menu; sitemap/robots/favicon; JSON-LD; lazy-loaded optimized images
-- Google rating 4.8/249 deliberately NOT displayed — could not be verified against the official Google listing at build time (per brief constraint)
+- Google rating 4.8 / 249 reviews VERIFIED against the official Google listing (user-shared link, crawled 2026-09-21 — name/address/phone all match) and now displayed via `GoogleRatingBadge` in the Home reviews section + `aggregateRating` JSON-LD
+- 3 more stage photos added (2026-09-21): bapi-trophy-flag (home champion banner + gallery), bapi-stage-bw (About inset + achievements "On Stage" strip + gallery), bapi-stage-side (achievements strip + gallery). Gallery now 13 images
+- Contact page has an embedded Google Map (lazy iframe, no API key) pinned to the studio
 - All 5 second-batch images integrated additively: member-press (training banners), member-dumbbell (services hero), comp-poster (achievements champion banner), trophy-wall (owner showcase/about/proof), gym-floor-3 (facilities/free weights)
 
 ## Backlog

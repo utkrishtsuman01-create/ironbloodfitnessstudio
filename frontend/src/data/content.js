@@ -14,6 +14,10 @@ export const BUSINESS = {
         "https://www.google.com/maps/search/?api=1&query=IRONBLOOD+FITNESS+STUDIO,+50+Bansdroni+Park,+Ward+Number+113,+Kolkata,+West+Bengal+700070",
     mapsEmbedUrl:
         "https://www.google.com/maps?q=IRONBLOOD+FITNESS+STUDIO,+50+Bansdroni+Park,+Ward+Number+113,+Kolkata,+West+Bengal+700070&output=embed",
+    googleRating: "4.8",
+    googleReviewCount: "249",
+    googleListingUrl:
+        "https://www.google.com/search?q=ironblood+fitness+studio+reviews",
 };
 
 export const telHref = `tel:${BUSINESS.phoneRaw}`;
@@ -67,6 +71,18 @@ export const IMAGES = {
         src: "/images/gym-floor-3.jpg",
         alt: "Dumbbell rack and free weights area on the Ironblood Fitness Studio training floor",
     },
+    bapiTrophyFlag: {
+        src: "/images/bapi-trophy-flag.jpg",
+        alt: "Bapi Das on stage holding a championship trophy and the Indian flag with his winner's medal around his neck",
+    },
+    bapiStageSide: {
+        src: "/images/bapi-stage-side.jpg",
+        alt: "Bapi Das hitting a side chest pose under stage lights at a bodybuilding championship",
+    },
+    bapiStageBw: {
+        src: "/images/bapi-stage-bw.jpg",
+        alt: "Black and white stage portrait of Bapi Das in contest condition at a bodybuilding championship",
+    },
     gymCommunity: {
         src: "/images/gym-community.jpg",
         alt: "Athletes of the Ironblood Fitness Championship posing with medals and certificates inside the studio",
@@ -76,7 +92,10 @@ export const IMAGES = {
 export const GALLERY = [
     { ...IMAGES.bapiPose, category: "The Coach" },
     { ...IMAGES.trophyWall, category: "The Coach" },
+    { ...IMAGES.bapiStageBw, category: "The Coach" },
+    { ...IMAGES.bapiTrophyFlag, category: "Competition" },
     { ...IMAGES.bapiCollage, category: "Competition" },
+    { ...IMAGES.bapiStageSide, category: "Competition" },
     { ...IMAGES.compPoster, category: "Competition" },
     { ...IMAGES.gymFloor1, category: "The Studio" },
     { ...IMAGES.gymFloor2, category: "The Studio" },
